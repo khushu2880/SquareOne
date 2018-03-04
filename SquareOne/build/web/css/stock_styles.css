@@ -1,0 +1,69 @@
+#container{
+    border: 1px solid black;
+    height: 700px;
+    overflow-y: scroll;
+}
+#stock_table{
+    border:1px solid black;
+    padding: 5px;
+
+
+}
+#butt_add {
+    display: flex;
+    height:30px;
+    background: transparent;
+    border: none;
+
+}
+#text_add {
+    display: none;
+    width:50px;
+    height:30px;
+}
+th{
+    border:1px solid black;
+    font-size: 20px;
+    padding:10px;
+
+}
+td{
+    align-content: center;
+    vertical-align: bottom;
+    align-items: center;
+    padding-left: 4px;
+}
+#text_price{
+    width: 40px;
+    height:30px;
+    margin:0px;
+    float:left;
+    font-weight: bold;
+    color: black;
+}
+#butt_edit{
+    margin:0px;
+    height:30px;
+    display: flex;
+    background: transparent;
+    border:none;
+}
+#butt_remove{
+    margin:0px;
+    height:30px;
+    display: flex;
+    background: transparent;
+    border:none;
+}
+#item_avail{
+    text-align: right;
+    padding-right: 10px;
+}
+#add_item_button{
+    font-size: 20px;
+    align-self: left;
+}
+#Update_stock{
+    font-size: 20px;
+    align: left;
+}

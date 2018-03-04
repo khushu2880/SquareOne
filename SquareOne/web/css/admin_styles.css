@@ -1,0 +1,88 @@
+html, body {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+
+body {
+  background: tomato;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+}
+
+form {
+  background: transparent;
+  width:fit-content;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.7);
+  font-family: lato;
+  position: relative;
+  color: #333;
+  border-radius: 10px;
+}
+form header {
+  background: #FF3838;
+  padding: 30px 20px;
+  color: white;
+  font-size: 2.5em;
+  font-weight: 600;
+  border-radius: 10px 10px 0 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+form label{
+  font-size: 2em;
+  margin-left: 20px;
+  margin-right: 20px;
+  display: inline-block;
+  margin-top: 30px;
+  margin-bottom: 5px;
+  position: relative;
+}
+
+form input {
+  height: 40px;
+  display: block;
+  width: 78%;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 5px 20px;
+  font-size: 1em;
+  border-radius: 3px;
+  outline: none;
+  border: 1px solid #ccc;
+  background: white;
+}
+form .signup {
+
+  margin-left: 20px;
+  font-size: 1em;
+  color: #777;
+
+}
+
+form #login_button {
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-family: inherit;
+  color: white;
+  background: #FF3838;
+  outline: none;
+  border: none;
+  padding: 5px;
+  font-size: 1.3em;
+  font-weight: 400;
+  border-radius: 3px;
+  box-shadow: 0px 0px 10px rgba(51, 51, 51, 0.4);
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+  width: 120px;
+}
+form #login_button:hover {
+  background: #ff5252;
+}
