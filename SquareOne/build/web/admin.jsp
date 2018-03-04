@@ -9,14 +9,14 @@
 </head>
 
 <body>
-<form action="admin/stock.html">
+  <form action="verify_admin_login" method="post">
   <header>Welcome Admin!</header>
   <label>Username </label>
-  <input id="email" class="input_field" type="email">
+  <input id="email" class="input_field" type="email" name="email">
   <div class="signup"></div>
   <label>Password </label>
-  <input id="pass" class="input_field" type="password">
-  <input type="submit" id="login_button" value="Login" onclick="">
+  <input id="pass" class="input_field" type="password" name="pass">
+  <input type="submit" id="login_button" value="Login">
 </form>
 </body>
 

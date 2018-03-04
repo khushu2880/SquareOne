@@ -52,14 +52,14 @@ public final class admin_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("</head>\r\n");
       out.write("\r\n");
       out.write("<body>\r\n");
-      out.write("<form action=\"admin/stock.html\">\r\n");
+      out.write("  <form action=\"verify_admin_login\" method=\"post\">\r\n");
       out.write("  <header>Welcome Admin!</header>\r\n");
       out.write("  <label>Username </label>\r\n");
-      out.write("  <input id=\"email\" class=\"input_field\" type=\"email\">\r\n");
+      out.write("  <input id=\"email\" class=\"input_field\" type=\"email\" name=\"email\">\r\n");
       out.write("  <div class=\"signup\"></div>\r\n");
       out.write("  <label>Password </label>\r\n");
-      out.write("  <input id=\"pass\" class=\"input_field\" type=\"password\">\r\n");
-      out.write("  <input type=\"submit\" id=\"login_button\" value=\"Login\" onclick=\"\">\r\n");
+      out.write("  <input id=\"pass\" class=\"input_field\" type=\"password\" name=\"pass\">\r\n");
+      out.write("  <input type=\"submit\" id=\"login_button\" value=\"Login\">\r\n");
       out.write("</form>\r\n");
       out.write("</body>\r\n");
       out.write("\r\n");
