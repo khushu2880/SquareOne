@@ -1,0 +1,19 @@
+#transaction_table
+{
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+th,td{
+     border: 1px solid black;
+     padding: 8px;
+     margin: 8px;
+}
+#jump_page_no
+{
+    width:30px;
+}
+tfoot{
+    text-align: right;
+}
+
+
