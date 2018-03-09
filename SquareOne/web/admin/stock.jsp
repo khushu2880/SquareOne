@@ -1,3 +1,16 @@
+<%
+    
+    if(session.getAttribute("user_name")==null ||session.getAttribute("user_name").equals(""))
+    {
+        response.sendRedirect("..//admin.jsp");
+    }
+    
+%>
+
+
+
+
+
 <html>
 <head>
     <title>Stock</title>
@@ -6,9 +19,10 @@
 <body>
     <header>
         <script>
-        function AddFunc(butt_id,text_add_ID){
-        document.getElementById(butt_id).style.display = 'none';
-        document.getElementById(text_add_ID).style.display = 'flex';
+        function AddFunc(butt_id,text_add_ID)
+        {
+            document.getElementById(butt_id).style.display = 'none';
+            document.getElementById(text_add_ID).style.display = 'flex';
         }
         function editprice(text_price_ID)
         {
@@ -16,7 +30,6 @@
         }
         function add_to_qty(e,text_add_ID,item_avail_ID,butt_add_ID)
         {
-            
             if(e.keyCode===13)
             {
                 var avail= parseInt(document.getElementById(item_avail_ID).innerHTML);
@@ -36,6 +49,11 @@
                 document.getElementById(text_price_ID).readOnly= true;
             }
         }
+        function change_visibilty_status()
+        {
+            document.getElementById("visibility_img").src="../images/icons/visible_true.png";
+        }
+               
         </script>
         <%@include file="navbar.jsp" %>
     </header>
@@ -52,16 +70,30 @@
             <tr>
                 <td id="item_name">Rice</td>
                 <td id="item_avail">50</td>
-                <td><Button id="butt_add" onclick="AddFunc(this.id,'text_add')"><img src="../images\icons\add.png"></button>
+                <td><Button id="butt_add" onclick="AddFunc(this.id,'text_add')"><img src="../images/icons/add.png"></button>
                     <input id="text_add" type="text" onKeydown="add_to_qty(event,this.id,'item_avail','butt_add')" ></td>
                 <td><input id="text_price" type="text" onKeydown="update_price(event,'text_price')" readonly value="100"><Button id="butt_edit" onclick="editprice('text_price')"><img id="edit_price_icon" width="20px" src="../images\icons\edit.png"></button></td>
-                <td><button id="butt_remove"><img src="../images\icons\remove.png"></button></td>
-                <td><button id="visibility_button"><img src="../images\icons\visibile_true.png"></button>
+                <td><button id="butt_remove"><img src="../images/icons/remove.png"></button></td>
+                <td><button id="visibility_button" onclick="change_visibilty_status() "><img  src="../images/icons/visible_false.png" id="visibility_img"></button>
             </tr>
         </table>
     </div>
-    <div id"Add_item_box">
-        <button id="add_item_button" onclick="" >Add Item</button>
+    <div id="new_item_box">
+        <button id="new_item_button" onclick="" >Add Item</button>
+        <table id="new_item_table">
+            <tr>
+                <td>Name</td>
+                <td>Quantity</td>
+                <td>Price</td>
+                <td>Image</td>
+            </tr>
+            <tr>
+                <td><input type="text" id="new_item_name"></td>
+                <td><input type="text" id="new_item_quantity"></td>
+                <td><input type="text" id="new_item_price"></td>
+                <td><input type="image"></td>
+            </tr>
+        </table>
         <button id="Update_stock" onclick="">Update</button>
     </div>
 

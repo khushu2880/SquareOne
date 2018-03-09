@@ -10,6 +10,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -49,6 +50,8 @@ public class verify_admin_login extends HttpServlet {
                 }
                 else
                 {
+                    HttpSession session = request.getSession();
+                    session.setAttribute("user_name",user_name);
                     response.sendRedirect("admin/stock.jsp");
                 }
             }
