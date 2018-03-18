@@ -2,6 +2,7 @@
     border: 1px solid black;
     height: 700px;
     overflow-y: scroll;
+    margin-bottom: 16px;
 }
 #stock_table{
     border:1px solid black;
@@ -59,9 +60,12 @@ td{
     text-align: right;
     padding-right: 10px;
 }
-#new_item_button{
+#new_item_butt{
     font-size: 20px;
-    align-self: left;
+    margin-left: 37%;
+    margin-right: 37%;
+    margin-top: 6px;
+    width: 120px;
 }
 #Update_stock{
     font-size: 20px;
@@ -75,4 +79,33 @@ td{
     display: flex;
     background: transparent;
     border:none;
+}
+#add_desc
+{
+    color:blue;
+    
+}
+#add_desc:hover
+{
+    cursor: pointer;
+}
+
+#desc_area
+{
+    width: 100%;
+}
+
+
+#new_item_label
+{
+    color: deepskyblue;
+    border: 1px solid black;
+    margin: 8px;
+    margin-top: 10px;
+    padding: 4px;
+    font-size: 24px;
+}
+#new_item_table
+{
+    margin:8px;
 }

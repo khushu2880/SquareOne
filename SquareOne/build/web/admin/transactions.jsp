@@ -1,3 +1,12 @@
+<%
+    
+    if(session.getAttribute("user_name")==null ||session.getAttribute("user_name").equals(""))
+    {
+        response.sendRedirect("..//admin.jsp");
+    }
+    
+%>
+
 <html>
     <head>
         <title>TODO supply a title</title>
@@ -20,7 +29,7 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td><a href="Order_Summary.html">16721899</a></td>
+                        <td><a href="Order_Summary.jsp?id=16721899">16721899</a></td>
                         <td><a href="account_detail">Mukul</a></td>
                         <td>200</td>
                         <td>7:28 AM</td>
@@ -29,7 +38,9 @@
                     </tr>
                 </tbody>
                 <tfoot>
-                    <td colspan="6"><label>Page:</label><a href="###self###">1</a>/<a href="###last###">2</a><label style="margin-left: 20px;">Jump to:</label><input id="jump_page_no" type="text"></td>
+                    <td colspan="6"><label>Page:</label><a href="###self###">1</a>
+                        /<a href="###last###">2</a>
+                        <label style="margin-left: 20px;">Jump to:</label><input id="jump_page_no" type="text"></td>
                 </tfoot>
             </table>
         </div>

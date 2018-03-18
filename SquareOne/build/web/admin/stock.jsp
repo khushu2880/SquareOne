@@ -19,6 +19,7 @@
 <body>
     <header>
         <script>
+            
         function AddFunc(butt_id,text_add_ID)
         {
             document.getElementById(butt_id).style.display = 'none';
@@ -53,7 +54,10 @@
         {
             document.getElementById("visibility_img").src="../images/icons/visible_true.png";
         }
-               
+        function add_desc()
+        {
+            document.getElementById('desc_area').style.display = 'flex';
+        }
         </script>
         <%@include file="navbar.jsp" %>
     </header>
@@ -79,22 +83,33 @@
         </table>
     </div>
     <div id="new_item_box">
-        <button id="new_item_button" onclick="" >Add Item</button>
-        <table id="new_item_table">
-            <tr>
-                <td>Name</td>
-                <td>Quantity</td>
-                <td>Price</td>
-                <td>Image</td>
-            </tr>
-            <tr>
-                <td><input type="text" id="new_item_name"></td>
-                <td><input type="text" id="new_item_quantity"></td>
-                <td><input type="text" id="new_item_price"></td>
-                <td><input type="image"></td>
-            </tr>
-        </table>
-        <button id="Update_stock" onclick="">Update</button>
+        <Label id="new_item_label">New Item</Label>
+        <form action="../add_new_item" method="post">
+            <table id="new_item_table">
+                <tr>
+                    <td>Name</td>
+                    <td>Quantity</td>
+                    <td>Price</td>
+                    <td>Image</td>
+                </tr>
+                <tr>
+                    <td><input type="text" id="new_item_name" name="new_item"></td>
+                    <td><input type="text" id="new_item_quantity" name="new_item_quantity" ></td>
+                    <td><input type="text" id="new_item_price" name="new_item_price"></td>
+                    <td><input type="file"></td>
+                        
+                </tr>
+                <tr>
+                    <td colspan="1"><span id="add_desc" onclick="add_desc()">Add Description</span></td>
+                    <td colspan="2"><textarea id="desc_area" style="display: flex" value-"NULL" ></textarea></td>
+                </tr>
+                <tr>
+                    <td colspan="4"><input type="submit" id="new_item_butt" value="Create"></td>
+                </tr>
+            </table>
+            
+        </form>
+        
     </div>
 
 </body>

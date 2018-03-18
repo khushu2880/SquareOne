@@ -4,9 +4,17 @@
         <servlet-name>verify_admin_login</servlet-name>
         <servlet-class>controller.verify_admin_login</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>add_new_item</servlet-name>
+        <servlet-class>controller.add_new_item</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>verify_admin_login</servlet-name>
         <url-pattern>/verify_admin_login</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>add_new_item</servlet-name>
+        <url-pattern>/add_new_item</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
