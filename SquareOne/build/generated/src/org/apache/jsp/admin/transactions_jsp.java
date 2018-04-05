@@ -3,6 +3,7 @@ package org.apache.jsp.admin;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import java.sql.*;
 
 public final class transactions_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -68,21 +69,77 @@ public final class transactions_jsp extends org.apache.jasper.runtime.HttpJspBas
       out.write("                        <th>Order Amount</th>\r\n");
       out.write("                        <th>Time</th>\r\n");
       out.write("                        <th>Date</th>\r\n");
-      out.write("                        <th>Balance</th>\r\n");
       out.write("                    </tr>\r\n");
       out.write("                </thead>\r\n");
       out.write("                <tbody>\r\n");
+      out.write("                    ");
+
+                        try 
+                        {
+         
+            
+                            Class.forName("com.mysql.jdbc.Driver");
+
+                            //Step 2: Create the Connection
+                            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/squareone","root","");
+
+                            //Step 3: Make the Query
+                            PreparedStatement ps=con.prepareStatement("Select * from transactions");
+
+                            //Step5: Execute the query
+                            ResultSet rs=ps.executeQuery();
+                        
+                            while(rs.next())
+                            {
+                                String trans_id = rs.getString("order_id");
+                                String card_id = rs.getString("cardholder_id");
+                                String amount = rs.getString("amount");
+                                String date = rs.getString("date");
+                                String time = rs.getString("time");
+                                
+                                
+                    
+      out.write("\r\n");
       out.write("                    <tr>\r\n");
-      out.write("                        <td><a href=\"Order_Summary.html\">16721899</a></td>\r\n");
-      out.write("                        <td><a href=\"account_detail\">Mukul</a></td>\r\n");
-      out.write("                        <td>200</td>\r\n");
-      out.write("                        <td>7:28 AM</td>\r\n");
-      out.write("                        <td>21/2/2018</td>\r\n");
-      out.write("                        <td>300</td>\r\n");
+      out.write("                        \r\n");
+      out.write("                        <td><a href=\"Order_Summary.jsp?trans_id=");
+      out.print(trans_id);
+      out.write('"');
+      out.write('>');
+      out.print(trans_id);
+      out.write("</a></td>\r\n");
+      out.write("                        <td><a href=\"account_detail\">");
+      out.print(card_id);
+      out.write("</a></td>\r\n");
+      out.write("                        <td>");
+      out.print(amount);
+      out.write("</td>\r\n");
+      out.write("                        <td>");
+      out.print(time);
+      out.write("</td>\r\n");
+      out.write("                        <td>");
+      out.print(date);
+      out.write("</td>\r\n");
       out.write("                    </tr>\r\n");
-      out.write("                </tbody>\r\n");
+      out.write("                    ");
+
+                            }
+                            con.close();
+                    
+                        }
+                        catch(Exception ex)
+                        {
+                            out.println("Exception on ViewAll Record = "+ex);
+                        }
+
+                    
+      out.write("\r\n");
+      out.write("                \r\n");
+      out.write("            </tbody>\r\n");
       out.write("                <tfoot>\r\n");
-      out.write("                    <td colspan=\"6\"><label>Page:</label><a href=\"###self###\">1</a>/<a href=\"###last###\">2</a><label style=\"margin-left: 20px;\">Jump to:</label><input id=\"jump_page_no\" type=\"text\"></td>\r\n");
+      out.write("                    <td colspan=\"6\"><label>Page:</label><a href=\"###self###\">1</a>\r\n");
+      out.write("                        <a href=\"###last###\">2</a>\r\n");
+      out.write("                        <label style=\"margin-left: 20px;\">Jump to:</label><input id=\"jump_page_no\" type=\"text\"></td>\r\n");
       out.write("                </tfoot>\r\n");
       out.write("            </table>\r\n");
       out.write("        </div>\r\n");

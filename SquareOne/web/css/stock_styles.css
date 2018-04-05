@@ -10,14 +10,14 @@
 
 
 }
-#butt_add {
+.butt_add {
     display: flex;
     height:30px;
     background: transparent;
     border: none;
 
 }
-#text_add {
+.text_add {
     display: none;
     width:50px;
     height:30px;
@@ -34,7 +34,7 @@ td{
     align-items: center;
     padding-left: 4px;
 }
-#text_price{
+.text_price{
     width: 40px;
     height:30px;
     margin:0px;
@@ -42,21 +42,21 @@ td{
     font-weight: bold;
     color: black;
 }
-#butt_edit{
+.butt_edit{
     margin:0px;
     height:30px;
     display: flex;
     background: transparent;
     border:none;
 }
-#butt_remove{
+.butt_remove{
     margin:0px;
     height:30px;
     display: flex;
     background: transparent;
     border:none;
 }
-#item_avail{
+.item_avail{
     text-align: right;
     padding-right: 10px;
 }
@@ -71,7 +71,7 @@ td{
     font-size: 20px;
     align: left;
 }
-#visibility_button
+.visibility_button
 {
     self-align:center;
     margin:0px;

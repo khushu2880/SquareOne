@@ -3,6 +3,7 @@ package org.apache.jsp.admin;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import java.sql.*;
 
 public final class stock_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -60,48 +61,69 @@ public final class stock_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
+      out.write("\r\n");
       out.write("<html>\r\n");
       out.write("<head>\r\n");
       out.write("    <title>Stock</title>\r\n");
       out.write("    <link rel=\"stylesheet\" href=\"../css/stock_styles.css\" type=\"text/css\">\r\n");
+      out.write("    <script src=\"js/script_1.9.js\" type=\"text/javascript\"></script>\r\n");
       out.write("</head>\r\n");
       out.write("<body>\r\n");
       out.write("    <header>\r\n");
       out.write("        <script>\r\n");
       out.write("            \r\n");
-      out.write("        function AddFunc(butt_id,text_add_ID)\r\n");
+      out.write("        function AddFunc(sno)\r\n");
       out.write("        {\r\n");
-      out.write("            document.getElementById(butt_id).style.display = 'none';\r\n");
-      out.write("            document.getElementById(text_add_ID).style.display = 'flex';\r\n");
+      out.write("        document.getElementById('butt_add'+sno).style.display = 'none';\r\n");
+      out.write("        document.getElementById('text_add'+sno).style.display = 'flex';\r\n");
       out.write("        }\r\n");
-      out.write("        function editprice(text_price_ID)\r\n");
+      out.write("        function editprice(sno)\r\n");
       out.write("        {\r\n");
-      out.write("            document.getElementById(text_price_ID).removeAttribute('readonly');\r\n");
+      out.write("            document.getElementById('text_price'+sno).removeAttribute('readonly');\r\n");
       out.write("        }\r\n");
-      out.write("        function add_to_qty(e,text_add_ID,item_avail_ID,butt_add_ID)\r\n");
+      out.write("        function add_to_qty(e,sno)\r\n");
       out.write("        {\r\n");
       out.write("            if(e.keyCode===13)\r\n");
       out.write("            {\r\n");
-      out.write("                var avail= parseInt(document.getElementById(item_avail_ID).innerHTML);\r\n");
-      out.write("                avail += parseInt(document.getElementById(text_add_ID).value);\r\n");
-      out.write("                document.getElementById(item_avail_ID).innerHTML=avail;\r\n");
-      out.write("                document.getElementById(text_add_ID).value='';\r\n");
-      out.write("                document.getElementById(butt_add_ID).style.display = 'flex';    \r\n");
-      out.write("                document.getElementById(text_add_ID).style.display = 'none';\r\n");
+      out.write("                var avail= parseInt(document.getElementById('item_quantity'+sno).innerHTML);\r\n");
+      out.write("                avail += parseInt(document.getElementById('text_add'+sno).value);\r\n");
+      out.write("                document.getElementById('item_quantity'+sno).innerHTML=avail;\r\n");
+      out.write("                document.getElementById('text_add'+sno).value='';\r\n");
+      out.write("                document.getElementById('butt_add'+sno).style.display = 'flex';    \r\n");
+      out.write("                document.getElementById('text_add'+sno).style.display = 'none';\r\n");
       out.write("            }\r\n");
       out.write("        }\r\n");
-      out.write("        function update_price(e,text_price_ID)\r\n");
+      out.write("        function update_price(e,sno)\r\n");
       out.write("        {\r\n");
       out.write("            if(e.keyCode===13)\r\n");
       out.write("            {\r\n");
-      out.write("                document.getElementById(text_price_ID).placeholder=document.getElementById(text_price_ID).value;\r\n");
-      out.write("                document.getElementById(text_price_ID).value='';\r\n");
-      out.write("                document.getElementById(text_price_ID).readOnly= true;\r\n");
+      out.write("                document.getElementById('text_price'+sno).placeholder=document.getElementById('text_price'+sno).value;\r\n");
+      out.write("                document.getElementById('text_price'+sno).value='';\r\n");
+      out.write("                document.getElementById('text_price'+sno).readOnly= true;\r\n");
       out.write("            }\r\n");
       out.write("        }\r\n");
-      out.write("        function change_visibilty_status()\r\n");
+      out.write("        function change_visibilty_status(sno , status)\r\n");
       out.write("        {\r\n");
-      out.write("            document.getElementById(\"visibility_img\").src=\"../images/icons/visible_true.png\";\r\n");
+      out.write("          //  document.getElementById(\"visibility_img\"+sno).src=\"../images/icons/visible_true.png\";\r\n");
+      out.write("         $.ajax({\r\n");
+      out.write("            type: \"POST\",\r\n");
+      out.write("            url: \"\",\r\n");
+      out.write("            data: {sno: sno,status: status},\r\n");
+      out.write("            success: function (result)\r\n");
+      out.write("            {\r\n");
+      out.write("                if (result.trim() === 'done') {\r\n");
+      out.write("                   location.reload();\r\n");
+      out.write("                } else {\r\n");
+      out.write("                  //  document.getElementById('adm_validate').innerHTML = \"UserName and Password Incorrect\";\r\n");
+      out.write("                }\r\n");
+      out.write("            }\r\n");
+      out.write("        });\r\n");
+      out.write("       \r\n");
+      out.write("            \r\n");
+      out.write("            \r\n");
+      out.write("            \r\n");
+      out.write("            \r\n");
+      out.write("            \r\n");
       out.write("        }\r\n");
       out.write("        function add_desc()\r\n");
       out.write("        {\r\n");
@@ -132,22 +154,131 @@ public final class stock_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <div id=\"container\">\r\n");
       out.write("        <table id=\"stock_table\">\r\n");
       out.write("            <tr>\r\n");
+      out.write("                <th>S No.</th>\r\n");
       out.write("                <th>Item</th>\r\n");
       out.write("                <th>Available(Qty)</th>\r\n");
       out.write("                <th>Add</th>\r\n");
       out.write("                <th>Price</th>\r\n");
-      out.write("                <th>Remove</th>\r\n");
       out.write("                <th>Visibility</th>\r\n");
       out.write("            </tr>\r\n");
+      out.write("            ");
+
+            
+                try 
+                {
+         
+            
+                    Class.forName("com.mysql.jdbc.Driver");
+           
+                    //Step 2: Create the Connection
+                    Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/squareone","root","");
+           
+                    //Step 3: Make the Query
+                    PreparedStatement ps=con.prepareStatement("Select * from stock");
+           
+                    //Step5: Execute the query
+                    ResultSet rs=ps.executeQuery();
+                        
+                    while(rs.next())
+                    {
+                        String sno = rs.getString("sno");
+                        String item_name = rs.getString("name");
+                        String item_quantity = rs.getString("quantity");
+                        String item_price = rs.getString("price");
+                        String item_image = rs.getString("image");
+                        String item_desc = rs.getString("description");
+                        String item_visibility = rs.getString("visibility");
+                        
+
+
+
+                        String path = "C:/wamp64/www/picture/"+item_image;
+                        String url = "http://localhost/picture/"+item_image;
+            
+      out.write("\r\n");
       out.write("            <tr>\r\n");
-      out.write("                <td id=\"item_name\">Rice</td>\r\n");
-      out.write("                <td id=\"item_avail\">50</td>\r\n");
-      out.write("                <td><Button id=\"butt_add\" onclick=\"AddFunc(this.id,'text_add')\"><img src=\"../images/icons/add.png\"></button>\r\n");
-      out.write("                    <input id=\"text_add\" type=\"text\" onKeydown=\"add_to_qty(event,this.id,'item_avail','butt_add')\" ></td>\r\n");
-      out.write("                <td><input id=\"text_price\" type=\"text\" onKeydown=\"update_price(event,'text_price')\" readonly value=\"100\"><Button id=\"butt_edit\" onclick=\"editprice('text_price')\"><img id=\"edit_price_icon\" width=\"20px\" src=\"../images\\icons\\edit.png\"></button></td>\r\n");
-      out.write("                <td><button id=\"butt_remove\"><img src=\"../images/icons/remove.png\"></button></td>\r\n");
-      out.write("                <td><button id=\"visibility_button\" onclick=\"change_visibilty_status() \"><img  src=\"../images/icons/visible_false.png\" id=\"visibility_img\"></button>\r\n");
+      out.write("                <td>");
+      out.print(sno);
+      out.write("</td>\r\n");
+      out.write("                <td id=\"item_name");
+      out.print(sno);
+      out.write("\" class=\"item_name\">");
+      out.print(item_name);
+      out.write("</td>\r\n");
+      out.write("                <td id=\"item_quantity");
+      out.print(sno);
+      out.write("\" class=\"item_avail\">");
+      out.print(item_quantity);
+      out.write("</td>\r\n");
+      out.write("                <td><button id='butt_add");
+      out.print(sno);
+      out.write("' class=\"butt_add\" onclick=\"AddFunc('");
+      out.print(sno);
+      out.write("')\" value=\"add\"><img src=\"../images/icons/add.png\"></button>\r\n");
+      out.write("                    <input id='text_add");
+      out.print(sno);
+      out.write("' class=\"text_add\" type=\"text\" onKeydown=\"add_to_qty(event,'");
+      out.print(sno);
+      out.write("')\"></td>\r\n");
+      out.write("                <td><input id=\"text_price");
+      out.print(sno);
+      out.write("\" class=\"text_price\" type=\"text\" onKeydown=\"update_price(event,'");
+      out.print(sno);
+      out.write("')\" readonly placeholder=\"");
+      out.print(item_price);
+      out.write("\"><Button class=\"butt_edit\" onclick=\"editprice('");
+      out.print(sno);
+      out.write("')\"><img class=\"edit_price_icon\" width=\"20px\" src=\"../images\\icons\\edit.png\"></button></td>\r\n");
+      out.write("                <td>\r\n");
+      out.write("                    ");
+ if(item_visibility.equals("0")){ 
+      out.write("\r\n");
+      out.write("                    <button id=\"visibility_button");
+      out.print(sno);
+      out.write("\" value=\"\" class=\"visibility_button\" onclick=\"change_visibilty_status(");
+      out.print(sno);
+      out.write(",'1'); \">\r\n");
+      out.write("                        <img  src=\"../images/icons/visible_false.png\" id=\"visibility_img");
+      out.print(sno);
+      out.write("\" class=\"visibility_img\">\r\n");
+      out.write("                        ");
+}
+                    else
+                    { 
+      out.write("\r\n");
+      out.write("                        <button id=\"visibility_button");
+      out.print(sno);
+      out.write("\" value=\"\" class=\"visibility_button\" onclick=\"change_visibilty_status(");
+      out.print(sno);
+      out.write(",'0') \">\r\n");
+      out.write("                        <img  src=\"../images/icons/visible_true.png\" id=\"visibility_img");
+      out.print(sno);
+      out.write("\" class=\"visibility_img\">\r\n");
+      out.write("                        ");
+
+                    }
+                    
+                    
+      out.write("\r\n");
+      out.write("                    </button>\r\n");
       out.write("            </tr>\r\n");
+      out.write("            ");
+
+           
+                    }
+                    con.close();
+                    
+            
+            
+            
+            }
+            catch(Exception ex)
+        {
+            out.println("Exception on ViewAll Record = "+ex);
+        }
+
+            
+      out.write("\r\n");
       out.write("        </table>\r\n");
       out.write("    </div>\r\n");
       out.write("    <div id=\"new_item_box\">\r\n");
@@ -169,7 +300,7 @@ public final class stock_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                </tr>\r\n");
       out.write("                <tr>\r\n");
       out.write("                    <td colspan=\"1\"><span id=\"add_desc\" onclick=\"add_desc()\">Add Description</span></td>\r\n");
-      out.write("                    <td colspan=\"2\"><textarea id=\"desc_area\" style=\"display: flex\" value-\"NULL\" ></textarea></td>\r\n");
+      out.write("                    <td colspan=\"2\"><textarea id=\"desc_area\" style=\"display: none\" value=\"NULL\" ></textarea></td>\r\n");
       out.write("                </tr>\r\n");
       out.write("                <tr>\r\n");
       out.write("                    <td colspan=\"4\"><input type=\"submit\" id=\"new_item_butt\" value=\"Create\"></td>\r\n");

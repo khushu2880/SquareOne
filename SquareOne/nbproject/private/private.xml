@@ -4,10 +4,14 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/A:/NetBeans/SquareOne/web/admin/stock.jsp</file>
+            <file>file:/A:/NetBeans/SquareOne/web/admin/navbar.jsp</file>
             <file>file:/A:/NetBeans/SquareOne/src/java/controller/verify_admin_login.java</file>
-            <file>file:/A:/NetBeans/SquareOne/web/admin.jsp</file>
+            <file>file:/A:/NetBeans/SquareOne/web/admin/transactions.jsp</file>
+            <file>file:/A:/NetBeans/SquareOne/web/admin/Order_Summary.jsp</file>
+            <file>file:/A:/NetBeans/SquareOne/web/admin/account.jsp</file>
             <file>file:/A:/NetBeans/SquareOne/web/css/stock_styles.css</file>
-            <file>file:/A:/NetBeans/SquareOne/src/java/controller/add_new_item.java</file>
+            <file>file:/A:/NetBeans/SquareOne/web/admin/manage_users.jsp</file>
+            <file>file:/A:/NetBeans/SquareOne/web/css/order_summary_styles.css</file>
         </group>
     </open-files>
 </project-private>

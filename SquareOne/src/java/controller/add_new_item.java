@@ -51,7 +51,7 @@ public class add_new_item extends HttpServlet {
             response.sendRedirect("admin/stock.jsp");
                        
         }
-        catch(Exception ex)
+         catch(Exception ex)
         {
             out.println(ex);
         }
