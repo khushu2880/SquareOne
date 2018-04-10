@@ -29,6 +29,12 @@ public class add_new_item extends HttpServlet {
             String item_desc = request.getParameter("new_item_desc");
             String item_visibility = request.getParameter("new_item_desc");
             item_visibility="1";
+            
+            
+            
+            
+            
+            
             Class.forName("com.mysql.jdbc.Driver");
                   
             //Step 2: Create the Connection

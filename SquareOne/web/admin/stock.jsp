@@ -27,6 +27,12 @@
         document.getElementById('butt_add'+sno).style.display = 'none';
         document.getElementById('text_add'+sno).style.display = 'flex';
         }
+        
+        function updateitem()
+        {
+            
+        }
+    
         function editprice(sno)
         {
             document.getElementById('text_price'+sno).removeAttribute('readonly');
@@ -38,6 +44,23 @@
                 var avail= parseInt(document.getElementById('item_quantity'+sno).innerHTML);
                 avail += parseInt(document.getElementById('text_add'+sno).value);
                 document.getElementById('item_quantity'+sno).innerHTML=avail;
+                
+                $.ajax({
+                    type: "POST",
+                    url: "../update_itemquantity",
+                    data: {sno: sno,qty: avail},
+                    success: function (result)
+                    {
+                        
+                        alert(result);
+                        if (result.trim() === 'success') {
+                           
+                        } else {
+                          //  Not able to change status";
+                        }
+                    }
+                });
+                                               
                 document.getElementById('text_add'+sno).value='';
                 document.getElementById('butt_add'+sno).style.display = 'flex';    
                 document.getElementById('text_add'+sno).style.display = 'none';
@@ -47,32 +70,49 @@
         {
             if(e.keyCode===13)
             {
-                document.getElementById('text_price'+sno).placeholder=document.getElementById('text_price'+sno).value;
+                var new_price =document.getElementById('text_price'+sno).value;
+                document.getElementById('text_price'+sno).placeholder = new_price;
+                
+                
+                $.ajax({
+                    type: "POST",
+                    url: "../update_itemprice",
+                    data: {sno: sno,price: new_price},
+                    success: function (result)
+                    {
+                        
+                        alert(result);
+                        if (result.trim() === 'success') {
+                           
+                        } else {
+                          //  Not able to change status";
+                        }
+                    }
+                });
+                
                 document.getElementById('text_price'+sno).value='';
                 document.getElementById('text_price'+sno).readOnly= true;
             }
+            
         }
         function change_visibilty_status(sno , status)
         {
-          //  document.getElementById("visibility_img"+sno).src="../images/icons/visible_true.png";
-         $.ajax({
+            
+            
+        $.ajax({
             type: "POST",
-            url: "",
+            url: "../update_itemstatus",
             data: {sno: sno,status: status},
             success: function (result)
             {
-                if (result.trim() === 'done') {
+                 alert(result);
+                if (result.trim() === 'success') {
                    location.reload();
                 } else {
-                  //  document.getElementById('adm_validate').innerHTML = "UserName and Password Incorrect";
+                  //  Not able to change status";
                 }
             }
         });
-       
-            
-            
-            
-            
             
         }
         function add_desc()
@@ -135,12 +175,12 @@
                 <td>
                     <% if(item_visibility.equals("0")){ %>
                     <button id="visibility_button<%=sno%>" value="" class="visibility_button" onclick="change_visibilty_status(<%=sno%>,'1'); ">
-                        <img  src="../images/icons/visible_false.png" id="visibility_img<%=sno%>" class="visibility_img">
+                        <img  src="../images/icons/visible_false.png" id="visibility_img<%=sno%>" class="visibility_img"></button>
                         <%}
                     else
                     { %>
                         <button id="visibility_button<%=sno%>" value="" class="visibility_button" onclick="change_visibilty_status(<%=sno%>,'0') ">
-                        <img  src="../images/icons/visible_true.png" id="visibility_img<%=sno%>" class="visibility_img">
+                            <img  src="../images/icons/visible_true.png" id="visibility_img<%=sno%>" class="visibility_img"></button>
                         <%
                     }
                     

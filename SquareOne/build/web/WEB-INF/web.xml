@@ -8,6 +8,18 @@
         <servlet-name>add_new_item</servlet-name>
         <servlet-class>controller.add_new_item</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>update_itemstatus</servlet-name>
+        <servlet-class>controller.update_itemstatus</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>update_itemprice</servlet-name>
+        <servlet-class>controller.update_itemprice</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>update_itemquantity</servlet-name>
+        <servlet-class>controller.update_itemquantity</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>verify_admin_login</servlet-name>
         <url-pattern>/verify_admin_login</url-pattern>
@@ -15,6 +27,18 @@
     <servlet-mapping>
         <servlet-name>add_new_item</servlet-name>
         <url-pattern>/add_new_item</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>update_itemstatus</servlet-name>
+        <url-pattern>/update_itemstatus</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>update_itemprice</servlet-name>
+        <url-pattern>/update_itemprice</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>update_itemquantity</servlet-name>
+        <url-pattern>/update_itemquantity</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
