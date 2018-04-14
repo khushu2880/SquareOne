@@ -3,16 +3,21 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/A:/NetBeans/SquareOne/web/admin/navbar.jsp</file>
             <file>file:/A:/NetBeans/SquareOne/web/admin/stock.jsp</file>
-            <file>file:/A:/NetBeans/SquareOne/src/java/controller/verify_admin_login.java</file>
+            <file>file:/A:/NetBeans/SquareOne/src/java/model/ItemModel.java</file>
+            <file>file:/A:/NetBeans/SquareOne/src/java/dao/item_dao.java</file>
+            <file>file:/A:/NetBeans/SquareOne/web/navbar.jsp</file>
+            <file>file:/A:/NetBeans/SquareOne/src/java/controller/update_itemprice.java</file>
+            <file>file:/A:/NetBeans/SquareOne/src/java/controller/view_transactions.java</file>
+            <file>file:/A:/NetBeans/SquareOne/web/admin.jsp</file>
             <file>file:/A:/NetBeans/SquareOne/web/admin/transactions.jsp</file>
-            <file>file:/A:/NetBeans/SquareOne/web/admin/index.jsp</file>
-            <file>file:/A:/NetBeans/SquareOne/web/admin/Order_Summary.jsp</file>
-            <file>file:/A:/NetBeans/SquareOne/web/admin/account.jsp</file>
-            <file>file:/A:/NetBeans/SquareOne/web/css/stock_styles.css</file>
-            <file>file:/A:/NetBeans/SquareOne/web/admin/manage_users.jsp</file>
-            <file>file:/A:/NetBeans/SquareOne/web/css/order_summary_styles.css</file>
+            <file>file:/A:/NetBeans/SquareOne/web/stock.jsp</file>
+            <file>file:/A:/NetBeans/SquareOne/src/java/controller/add_new_item.java</file>
+            <file>file:/A:/NetBeans/SquareOne/src/java/model/TransactionModel.java</file>
+            <file>file:/A:/NetBeans/SquareOne/src/java/controller/update_itemstatus.java</file>
+            <file>file:/A:/NetBeans/SquareOne/src/java/controller/verify_admin_login.java</file>
+            <file>file:/A:/NetBeans/SquareOne/src/java/dao_impl/item.java</file>
+            <file>file:/A:/NetBeans/SquareOne/src/java/controller/view_stock.java</file>
         </group>
     </open-files>
 </project-private>

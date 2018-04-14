@@ -52,7 +52,7 @@ public class verify_admin_login extends HttpServlet {
                 {
                     HttpSession session = request.getSession();
                     session.setAttribute("user_name",user_name);
-                    response.sendRedirect("admin/stock.jsp");
+                    response.sendRedirect("view_stock");
                 }
             }
             else

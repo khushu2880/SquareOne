@@ -10,7 +10,7 @@
     
     if(session.getAttribute("user_name")==null ||session.getAttribute("user_name").equals(""))
     {
-        response.sendRedirect("..//admin.jsp");
+        response.sendRedirect("admin.jsp");
     }
 %>
         

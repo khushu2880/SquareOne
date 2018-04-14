@@ -20,6 +20,30 @@
         <servlet-name>update_itemquantity</servlet-name>
         <servlet-class>controller.update_itemquantity</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>viewstock</servlet-name>
+        <servlet-class>controller.viewstock</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>view_stock</servlet-name>
+        <servlet-class>controller.view_stock</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>view_transactions</servlet-name>
+        <servlet-class>controller.view_transactions</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>view_manage_users</servlet-name>
+        <servlet-class>controller.view_manage_users</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Logout</servlet-name>
+        <servlet-class>controller.Logout</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>OrderSummary</servlet-name>
+        <servlet-class>controller.OrderSummary</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>verify_admin_login</servlet-name>
         <url-pattern>/verify_admin_login</url-pattern>
@@ -39,6 +63,31 @@
     <servlet-mapping>
         <servlet-name>update_itemquantity</servlet-name>
         <url-pattern>/update_itemquantity</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>viewstock</servlet-name>
+        <url-pattern>/viewstock</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>view_stock</servlet-name>
+        <url-pattern>/view_stock</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>view_transactions</servlet-name>
+        <url-pattern>/view_transactions</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>view_manage_users</servlet-name>
+        <url-pattern>/view_manage_users</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Logout</servlet-name>
+        <url-pattern>/Logout</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>OrderSummary</servlet-name>
+        <url-pattern>/OrderSummary</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

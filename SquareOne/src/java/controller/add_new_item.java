@@ -1,5 +1,6 @@
 package controller;
 
+import dao_impl.item;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -8,6 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.ItemModel;
 
 /**
  *
@@ -27,33 +29,19 @@ public class add_new_item extends HttpServlet {
             String item_image = request.getParameter("");
             item_image += "abc";
             String item_desc = request.getParameter("new_item_desc");
-            String item_visibility = request.getParameter("new_item_desc");
-            item_visibility="1";
+            String item_visibility = "1";
             
+            ItemModel itemmodel = new ItemModel();
+            itemmodel.setItem_name(item_name);
+            itemmodel.setItem_quantity(item_quantity);
+            itemmodel.setItem_price(item_price);
+            itemmodel.setItem_image(item_image);
+            itemmodel.setItem_desc(item_desc);
+            itemmodel.setItem_visibility(item_visibility);
             
-            
-            
-            
-            
-            Class.forName("com.mysql.jdbc.Driver");
-                  
-            //Step 2: Create the Connection
-            Connection con;
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/squareone","root","");
-                        
-           
-            //Step 3: Make the Query
-            java.sql.PreparedStatement ps=con.prepareStatement("Insert into stock set name=?, quantity= ?,price=?, image= ?,description=?,visibility=?");
-            
-            ps.setString(1,item_name);
-            ps.setString(2,item_quantity);
-            ps.setString(3,item_price);
-            ps.setString(4,item_image);
-            ps.setString(5,item_desc);
-            ps.setString(6,item_visibility);
-            
-            ps.executeUpdate();
-            con.close();
+            item it = new item();
+            String status =  it.addItem(itemmodel);
+            out.print(status);
             response.sendRedirect("admin/stock.jsp");
                        
         }

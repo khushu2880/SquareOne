@@ -3,7 +3,12 @@ package dao_impl;
 
 import dao.*;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import model.ItemModel;
+import model.TransactionModel;
 import service.DatabaseConnection;
 
 
@@ -18,6 +23,49 @@ public class item implements item_dao
             db = new DatabaseConnection();
             con = db.startConection();
         }
+    
+    @Override
+    public ArrayList<ItemModel> viewStock()
+    {
+        ArrayList al = new ArrayList();
+        try 
+        {
+            PreparedStatement ps=con.prepareStatement("Select * from stock");
+        
+            //Step5: Execute the query
+            ResultSet rs=ps.executeQuery();
+            while(rs.next())
+            { 
+                LinkedHashMap lhm = new LinkedHashMap();
+                lhm.put("Sno" , rs.getString("sno"));
+                lhm.put("Item_name",rs.getString("name"));
+                lhm.put("Item_quantity",rs.getString("quantity"));
+                lhm.put("Item_price",rs.getString("price"));
+                lhm.put("tem_image",rs.getString("image"));
+                lhm.put("Item_desc",rs.getString("description"));
+                lhm.put("Item_visibility",rs.getString("visibility"));
+                //String path = "C:/wamp64/www/picture/"+item_image;
+                //String url = "http://localhost/picture/"+item_image;
+            
+            
+            
+            
+                al.add(lhm);    
+            }
+            
+        }
+        catch(Exception ex)
+        {
+            
+        }
+                
+            
+        
+        
+        return al; 
+    }
+    
+      
     
     @Override
     public String addItem(ItemModel itemmodel) 

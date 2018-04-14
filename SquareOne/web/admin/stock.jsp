@@ -1,8 +1,10 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <%
     
     if(session.getAttribute("user_name")==null ||session.getAttribute("user_name").equals(""))
     {
-        response.sendRedirect("..//admin.jsp");
+        response.sendRedirect("admin.jsp");
     }
     
 %>
@@ -15,8 +17,8 @@
 <html>
 <head>
     <title>Stock</title>
-    <link rel="stylesheet" href="../css/stock_styles.css" type="text/css">
-    <script src="js/script_1.9.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="css/stock_styles.css" type="text/css">
+    <script src="admin/js/script_1.9.js" type="text/javascript"></script>
 </head>
 <body>
     <header>
@@ -47,7 +49,7 @@
                 
                 $.ajax({
                     type: "POST",
-                    url: "../update_itemquantity",
+                    url: "update_itemquantity",
                     data: {sno: sno,qty: avail},
                     success: function (result)
                     {
@@ -76,7 +78,7 @@
                 
                 $.ajax({
                     type: "POST",
-                    url: "../update_itemprice",
+                    url: "update_itemprice",
                     data: {sno: sno,price: new_price},
                     success: function (result)
                     {
@@ -101,7 +103,7 @@
             
         $.ajax({
             type: "POST",
-            url: "../update_itemstatus",
+            url: "update_itemstatus",
             data: {sno: sno,status: status},
             success: function (result)
             {
@@ -124,84 +126,46 @@
     </header>
     <div id="container">
         <table id="stock_table">
-            <tr>
+            <thead>
                 <th>S No.</th>
                 <th>Item</th>
                 <th>Available(Qty)</th>
                 <th>Add</th>
                 <th>Price</th>
                 <th>Visibility</th>
-            </tr>
-            <%
-            
-                try 
-                {
-         
-            
-                    Class.forName("com.mysql.jdbc.Driver");
-           
-                    //Step 2: Create the Connection
-                    Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/squareone","root","");
-           
-                    //Step 3: Make the Query
-                    PreparedStatement ps=con.prepareStatement("Select * from stock");
-           
-                    //Step5: Execute the query
-                    ResultSet rs=ps.executeQuery();
-                        
-                    while(rs.next())
-                    {
-                        String sno = rs.getString("sno");
-                        String item_name = rs.getString("name");
-                        String item_quantity = rs.getString("quantity");
-                        String item_price = rs.getString("price");
-                        String item_image = rs.getString("image");
-                        String item_desc = rs.getString("description");
-                        String item_visibility = rs.getString("visibility");
-                        
+            </thead>
+            <tbody>
+                <c:forEach items="${list}" var="data">
+                    <tr>
+                        <td>${data.Sno}</td>
+                        <td id="item_name${data.Sno}" class="item_name">${data.Item_name}</td>
+                        <td id="item_quantity${data.Sno}" class="item_avail">${data.Item_quantity}</td>
+                        <td><button id='butt_add${data.Sno}' class="butt_add" onclick="AddFunc('${data.Sno}')" value="add"><img src="images/icons/add.png"></button>
+                            <input id='text_add${data.Sno}' class="text_add" type="text" onKeydown="add_to_qty(event,'${data.Sno}')"></td>
+                        <td><input id="text_price${data.Sno}" class="text_price" type="text" onKeydown="update_price(event,'${data.Sno}')" readonly placeholder="${data.Item_price}"><Button class="butt_edit" onclick="editprice('${data.Sno}')"><img class="edit_price_icon" width="20px" src="images\icons\edit.png"></button></td>
+                        <td>
+                            <c:choose>
+                                <c:when test="${data.Item_visibility==0}" >
+                                    
+                                    <button id="visibility_button${data.Sno}" value="" class="visibility_button" onclick="change_visibilty_status(${data.Sno},'1'); ">
+                                        <img  src="images/icons/visible_false.png" id="visibility_img${data.Sno}" class="visibility_img"></button>
+                                    </c:when>
+                                <c:otherwise >
+
+                                    <button id="visibility_button${data.Sno}" value="" class="visibility_button" onclick="change_visibilty_status(${data.Sno},'0') ">
+                                        <img  src="images/icons/visible_true.png" id="visibility_img${data.Sno}" class="visibility_img"></button>
+                                </c:otherwise>
+                                    
+                                </c:choose>
 
 
 
-                        String path = "C:/wamp64/www/picture/"+item_image;
-                        String url = "http://localhost/picture/"+item_image;
-            %>
-            <tr>
-                <td><%=sno%></td>
-                <td id="item_name<%=sno%>" class="item_name"><%=item_name%></td>
-                <td id="item_quantity<%=sno%>" class="item_avail"><%=item_quantity%></td>
-                <td><button id='butt_add<%=sno%>' class="butt_add" onclick="AddFunc('<%=sno%>')" value="add"><img src="../images/icons/add.png"></button>
-                    <input id='text_add<%=sno%>' class="text_add" type="text" onKeydown="add_to_qty(event,'<%=sno%>')"></td>
-                <td><input id="text_price<%=sno%>" class="text_price" type="text" onKeydown="update_price(event,'<%=sno%>')" readonly placeholder="<%=item_price%>"><Button class="butt_edit" onclick="editprice('<%=sno%>')"><img class="edit_price_icon" width="20px" src="../images\icons\edit.png"></button></td>
-                <td>
-                    <% if(item_visibility.equals("0")){ %>
-                    <button id="visibility_button<%=sno%>" value="" class="visibility_button" onclick="change_visibilty_status(<%=sno%>,'1'); ">
-                        <img  src="../images/icons/visible_false.png" id="visibility_img<%=sno%>" class="visibility_img"></button>
-                        <%}
-                    else
-                    { %>
-                        <button id="visibility_button<%=sno%>" value="" class="visibility_button" onclick="change_visibilty_status(<%=sno%>,'0') ">
-                            <img  src="../images/icons/visible_true.png" id="visibility_img<%=sno%>" class="visibility_img"></button>
-                        <%
-                    }
-                    
-                    %>
-                    </button>
-            </tr>
-            <%
-           
-                    }
-                    con.close();
-                    
-            
-            
-            
-            }
-            catch(Exception ex)
-        {
-            out.println("Exception on ViewAll Record = "+ex);
-        }
 
-            %>
+                    </tr>   
+                </c:forEach>
+
+
+            </tbody>
         </table>
     </div>
     <div id="new_item_box">
