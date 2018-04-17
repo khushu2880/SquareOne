@@ -15,4 +15,8 @@ public interface item_dao
   public String updatePrice(ItemModel itemmodel);  
   public String updateQuantity(ItemModel itemmodel);
   public ArrayList viewStock();
+  public ArrayList userViewAll();
+  public ArrayList userViewDrinks();
+  public ArrayList userViewMeals();
+
 }

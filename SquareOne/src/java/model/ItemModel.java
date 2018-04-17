@@ -10,6 +10,22 @@ String item_price;
 String item_image;
 String item_desc;
 String item_visibility;
+String category;
+String path = "http://localhost/picture/";
+    public String getCategory() {
+        return category;
+    }
+    
+    public String getImageUrl()
+    {
+        return (path+item_image);
+    }
+    
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
 
     public int getSno() {
         return sno;

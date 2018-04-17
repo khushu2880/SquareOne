@@ -17,7 +17,9 @@
 
 <html>
     <head>
-        <title>JSP Page</title>
+        <title>Account</title>
+        <link href="css/manage_users_styles.css" rel="stylesheet" type="text/css"/>
+        <link href="css/tablecontainer.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <%@include file="navbar.jsp" %>
@@ -53,7 +55,7 @@
                     pic_name = rs.getString("pic");
                     Birthdate = rs.getString("dob");
         %>
-        <div>
+        <div id="container">
             <div id="profile_head"><label><%=full_name%></label></div>
             <br>
             <div id="profile_left"></div>

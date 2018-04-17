@@ -44,7 +44,7 @@ public class transaction implements transaction_dao{
                 LinkedHashMap lhm = new LinkedHashMap();
                 
                 lhm.put("Trans_id",rs.getString("order_id"));
-                lhm.put("Card_id",rs.getString("cardholder_id"));
+                lhm.put("Card_id",rs.getString("card_id"));
                 lhm.put("Amount",rs.getString("amount"));
                 lhm.put("Date",rs.getString("date"));
                 lhm.put("Time",rs.getString("time"));
@@ -55,7 +55,7 @@ public class transaction implements transaction_dao{
         }
         catch(Exception ex)
         {
-            
+            System.out.println("ex"+ex);
         }
                      
         return al; 

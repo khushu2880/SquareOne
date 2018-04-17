@@ -6,12 +6,10 @@
             <file>file:/A:/NetBeans/SquareOne/web/admin/stock.jsp</file>
             <file>file:/A:/NetBeans/SquareOne/src/java/model/ItemModel.java</file>
             <file>file:/A:/NetBeans/SquareOne/src/java/dao/item_dao.java</file>
-            <file>file:/A:/NetBeans/SquareOne/web/navbar.jsp</file>
             <file>file:/A:/NetBeans/SquareOne/src/java/controller/update_itemprice.java</file>
             <file>file:/A:/NetBeans/SquareOne/src/java/controller/view_transactions.java</file>
             <file>file:/A:/NetBeans/SquareOne/web/admin.jsp</file>
             <file>file:/A:/NetBeans/SquareOne/web/admin/transactions.jsp</file>
-            <file>file:/A:/NetBeans/SquareOne/web/stock.jsp</file>
             <file>file:/A:/NetBeans/SquareOne/src/java/controller/add_new_item.java</file>
             <file>file:/A:/NetBeans/SquareOne/src/java/model/TransactionModel.java</file>
             <file>file:/A:/NetBeans/SquareOne/src/java/controller/update_itemstatus.java</file>

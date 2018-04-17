@@ -42,10 +42,11 @@ public class adminAccount implements adminAccount_dao
                     //Step5: Execute the query
                     ResultSet rs=ps.executeQuery();
                     
-            int tabelrow = 1;
+            int tabelrow = 0;
             
             while (rs.next()) 
             {
+                tabelrow++;
                 LinkedHashMap lhm = new LinkedHashMap();
                 lhm.put("Table_row",tabelrow);
                 lhm.put("Sno",rs.getInt("sno"));

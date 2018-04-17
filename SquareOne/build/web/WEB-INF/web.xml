@@ -44,6 +44,30 @@
         <servlet-name>OrderSummary</servlet-name>
         <servlet-class>controller.OrderSummary</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>view_account</servlet-name>
+        <servlet-class>controller.view_account</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>view_all</servlet-name>
+        <servlet-class>controller.view_all</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>view_drinks</servlet-name>
+        <servlet-class>controller.view_drinks</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>view_meal</servlet-name>
+        <servlet-class>controller.view_meal</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>user_login_verify</servlet-name>
+        <servlet-class>controller.user_login_verify</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>create_user</servlet-name>
+        <servlet-class>controller.create_user</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>verify_admin_login</servlet-name>
         <url-pattern>/verify_admin_login</url-pattern>
@@ -65,10 +89,6 @@
         <url-pattern>/update_itemquantity</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>viewstock</servlet-name>
-        <url-pattern>/viewstock</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>view_stock</servlet-name>
         <url-pattern>/view_stock</url-pattern>
     </servlet-mapping>
@@ -84,10 +104,33 @@
         <servlet-name>Logout</servlet-name>
         <url-pattern>/Logout</url-pattern>
     </servlet-mapping>
-
     <servlet-mapping>
         <servlet-name>OrderSummary</servlet-name>
         <url-pattern>/OrderSummary</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>view_account</servlet-name>
+        <url-pattern>/view_account</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>view_all</servlet-name>
+        <url-pattern>/view_all</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>view_drinks</servlet-name>
+        <url-pattern>/view_drinks</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>view_meal</servlet-name>
+        <url-pattern>/view_meal</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>user_login_verify</servlet-name>
+        <url-pattern>/user_login_verify</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>create_user</servlet-name>
+        <url-pattern>/create_user</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

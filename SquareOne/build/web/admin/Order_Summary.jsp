@@ -1,135 +1,124 @@
-<%-- 
-    Document   : Order Summary
-    Created on : 14 Mar, 2018, 10:23:39 AM
-    Author     : mukul
---%>
-
 <%
-    if(session.getAttribute("user_name")==null ||session.getAttribute("user_name").equals(""))
-    {
-        response.sendRedirect("admin.jsp");
+    if (session.getAttribute("user_name") == null || session.getAttribute("user_name").equals("")) {
+        response.sendRedirect("../admin.jsp");
     }
 %>
 <%@page import="java.sql.*"%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+
+
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <meta charset="utf-8">
+        <title>Invoice</title>
         <link href="../css/order_summary_styles.css" rel="stylesheet" type="text/css"/>
+
     </head>
+    <%
+        try {
+
+            String trans_id = request.getParameter("trans_id");
+            Class.forName("com.mysql.jdbc.Driver");
+
+            //Step 2: Create the Connection
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/squareone", "root", "");
+            //Step 3: Make the Query
+            PreparedStatement ps = con.prepareStatement("Select * from transactions join user_data on transactions.card_id=user_data.card_id where order_id=?");
+            ps.setString(1, trans_id);
+
+            //Step5: Execute the query
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                String name = rs.getString("fullname");
+                String numb = rs.getString("mobnumber");
+                String card_id = rs.getString("card_id");
+                String date = rs.getString("date");
+                String time = rs.getString("time");
+
+                String bill_amount = rs.getString("amount");
+                int i = 0, item_name_index = 0, price_index = 1, quantity_index = 2;
+                String productsarray[] = (rs.getString("order_products")).split(";");
+    %>
+
     <body>
-        <%@include file="navbar.jsp" %>
-        <div id="bill_container">
-            <div id="bill_head">
-                <div id="main_square">Square One<br><Label id="bill_address">Chitkara University<br>Punjab</label></div>
-                <div id="coffe_cont"><img id="bill_img" src="../images/bil_tq_logo.png" alt=""/></div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <div class="text-center">
-                            <i class="fa fa-search-plus pull-left icon"></i>
-                            <h2>Invoice for purchase #33221</h2>
-                        </div>
-                        <hr>
-                        <div class="row">
-                            <div class="col-xs-12 col-md-3 col-lg-3 pull-left">
-                                <div class="panel panel-default height">
-                                    <div class="panel-heading">Billing Details</div>
-                                    <div class="panel-body">
-                                        <strong>David Peere:</strong><br>
-                                        1111 Army Navy Drive<br>
-                                        Arlington<br>
-                                        VA<br>
-                                        <strong>22 203</strong><br>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="text-center"><strong>Order summary</strong></h3>
-                            </div>
-                            <div class="panel-body">
-                                <div class="table-responsive">
-                                <%
-                                    String trans_id = request.getParameter("trans_id");
-                                    Class.forName("com.mysql.jdbc.Driver");
+        <header>
+            <h1>Invoice</h1>
 
-                                    //Step 2: Create the Connection
-                                    Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/squareone","root","");
-
-                                    //Step 3: Make the Query
-                                    PreparedStatement ps=con.prepareStatement("Select * from transactions where order_id=?");
-                                    ps.setString(1,trans_id);
-
-                                    //Step5: Execute the query
-                                    ResultSet rs=ps.executeQuery();
-                                    if(rs.next())
-                                    {
-                                        String bill_amount = rs.getString("amount");
-                                        int i=0,name = 0,item_price=1,quantity=2;
-                                        String productsarray[] = (rs.getString("order_products")).split(";");
-                                %>
-                                        <table class="table table-condensed">
-                                            <thead>
-                                                <tr>
-                                                    <td><strong>S No.</strong></td>
-                                                    <td><strong>Item Name</strong></td>
-                                                    <td class="text-center"><strong>Item Price</strong></td>
-                                                    <td class="text-center"><strong>Item Quantity</strong></td>
-                                                    <td class="text-right"><strong>Total</strong></td>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                <%
-                                        for(String product_quant : productsarray)
-                                        { 
-                                            i++;
-                                            String item[]=product_quant.split(":");
-                                %>
-                                                <tr>
-                                                    <td><%=i%></td>
-                                                    <td><%=item[name]%></td>
-                                                    <td class="text-center"><%=item[item_price]%></td>
-                                                    <td class="text-center"><%=item[quantity]%></td>
-                                                    <td class="text-right"><%=(Integer.parseInt(item[item_price])*Integer.parseInt(item[quantity]))%></td>
-                                                </tr>
-                                <%    
-                                        }
-                                %>
-                                                <tr>
-                                                    <td class="highrow"></td>
-                                                    <td class="highrow"></td>
-                                                    <td class="highrow"></td>
-                                                    <td class="highrow text-center"><strong>Total</strong></td>
-                                                    <td class="highrow text-right"><%=bill_amount%></td>
-                                                </tr>
-                                             </tbody>
-                                        </table>
-                                <%
-                                    }
-                                    else
-                                    {
-                                        out.print("No Record Found");
-                                    }
-                                %>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>  
+            <span><img alt="" src="../images/bil_tq_logo.png"></span>
+        </header>
+        <article>
+            <h1>Recipient</h1>
+            <table class="meta">
+                <tr>
+                    <th><span>Invoice #</span></th>
+                    <td><span><%=trans_id%></span></td>
+                </tr>
+                <tr>
+                    <th><span>Date</span></th>
+                    <td><span><%=date%></span></td>
+                </tr>
+                <tr>
+                    <th><span >Time</span></th>
+                    <td><span><%=time%></span></td>
+                </tr>
+            </table>
+            <table class="inventory">
+                <thead>
+                    <tr>
+                        <th style="width:40px;"><span >S No.</span></th>
+                        <th><span >Item</span></th>
+                        <th><span >Rate</span></th>
+                        <th><span >Quantity</span></th>
+                        <th><span >Price</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <address>
+                    <p><%=name%></p>
+                    <p><%=card_id%></p>
+                    <p>#address</p>
+                    <p><%=numb%></p>
+                </address>
+                    <%
+                        for (String product_quant : productsarray) {
+                            i++;
+                            String item[] = product_quant.split(":");
+                    %>
                 
-            
-                    
-        </div>
+                <tr>
+                    <td><span><%=i%></span></td>
+                    <td><span ><%=item[item_name_index]%></span></td>
+                    <td><span data-prefix>&#8377;</span><span ><%=item[price_index]%></span></td>
+                    <td><span ><%=item[quantity_index]%></span></td>
+                    <td><span data-prefix>&#8377;</span><span><%=(Integer.parseInt(item[price_index]) * Integer.parseInt(item[quantity_index]))%></span></td>
+                </tr>
+                <%
+                    }
+                %>
+                </tbody>
+            </table>
+            <table class="balance">
+                <tr>
+                    <th><span >Total</span></th>
+                    <td><span data-prefix>&#8377;</span><span><%=bill_amount%></span></td>
+                </tr>
+                <tr>
+                    <th><span >Amount Paid</span></th>
+                    <td><span data-prefix>&#8377;</span><span ><%=bill_amount%></span></td>
+                </tr>
+            </table>
+            <%
+                    } else {
+                        out.print("No Record Found");
+                    }
+                    con.close();
+                } catch (Exception ex) {
+                    System.out.println("ex" + ex);
+                }
+            %>
+        </article>
+        <aside>
+            <h1><span >Additional Notes</span></h1>
+        </aside>
     </body>
 </html>
