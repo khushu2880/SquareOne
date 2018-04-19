@@ -74,8 +74,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="agile_top_brand_left_grid1">
 								<figure>
 									<div class="snipcart-item block">
-										<div class="snipcart-thumb">
-											<a href="single.html"><img src="${data.Item_image}" alt=" " class="img-responsive" /></a>
+                                                                            <div class="snipcart-thumb"><%-- TODO Link to Item description Required  --%>
+											<img src="${data.Item_image}" alt=" " class="img-responsive" />
 											<p>${data.Item_name}</p>
 											<h4>&#8377;${data.Item_price}</h4>
 										</div>

@@ -12,6 +12,7 @@ author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -59,51 +60,87 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="container">
 			<ul>
 				<li><i class="fa fa-home" aria-hidden="true"></i><a href="index.html">Home</a><span>|</span></li>
-				<li>Sign In & Sign Up</li>
+				<li>Sign In</li>
 			</ul>
 		</div>
 	</div>
 <!-- //products-breadcrumb -->
 <!-- banner -->
 	<div class="banner">
-		<div class="w3l_banner_nav_left">
-                    <%@include file="user/user_navbar.jsp" %>
-		</div>
+		
 		<div class="w3l_banner_nav_right">
 <!-- login -->
 		<div class="w3_login">
-			<h3>Sign In & Sign Up</h3>
-			<div class="w3_login_module">
+			<h3>Sign In</h3>
+			<div class="login_module">
 				<div class="module form-module">
-				  <div class="toggle"><i class="fa fa-times fa-pencil"></i>
-					<div class="tooltip">Click Me</div>
-				  </div>
-				  <div class="form">
-					<h2>Login to your account</h2>
+				    <div class="form signin">
+                                        <h2>Login to your account</h2><br>
 					<form action="user_login_verify" method="post">
-                                            <input type="text" name="Username" placeholder="Username" required>					  <input type="password" name="Password" placeholder="Password" required=" "/>
-					  <input type="submit" value="Login">
+                                            <div class="input-group input-group-lg" style="display: block">
+                                                <input type="text" class="form-control" name="username" placeholder="username" required aria-describedby="sizing-addon1">
+                                                <input type="password" class="form-control" name="password" placeholder="password" required aria-describedby="sizing-addon1">
+                                                <button onclick="submit" class="form-control" ><span class="label label-success">Login</span></button>
+                                            </div>
+                                            
+                                          <div class="cta"><a href="#">Forgot your password?</a></div>
 					</form>
-				  </div>
-				  <div class="form">
-					<h2>Create an account</h2>
+                                    </div><br>
+                                    <div class="toggle"><h4>Click here to Sign Up?</h4></div>
+                                    <div class="form signup" style="display: none;">
+                                        <h2>Create an account</h2><br>
 					<form action="create_user" method="post">
-                                          <input type="text" name="username" placeholder="Username" required />
-					  <input type="password" name="password" placeholder="Password" required/>
-					  <input type="email" name="email" placeholder="Email Address" required/>
-					  <input type="text" name="phone" placeholder="Phone Number" required/>
-					  <input type="submit" value="Register">
-					</form>
-				  </div>
-				  <div class="cta"><a href="#">Forgot your password?</a></div>
+                                            <table cellspacing="10px">
+                                                <tr>
+                                                    <td><input type="text" placeholder="First Name" class="form-control" name="fname"></td>
+                                                    <td><input type="text" placeholder="Last Name" class="form-control" name="lname"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2"><input type="text" class="form-control" name="username" placeholder="username" required /></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><input type="password" class="form-control" name="password" placeholder="Password" required/></td>
+                                                    <td><input type="password" class="form-control" name="cpassword" placeholder="Confirm Password" required/></td>
+                                                </tr>
+                                                <tr >
+                                                    <td colspan="2"><!--<span class="input-group-addon" id="basic-addon1">Email</span>-->
+                                                    <input type="email" class="form-control" name="email" placeholder="Email Address" /></td>
+                                                </tr>
+                                                <tr><td colspan="2"><input type="text" class="form-control" name="phone" placeholder="Phone Number" required/></td></tr>
+                                                <tr ><td class="list-group-item form-control">Birth date:</td>
+                                                    <td><input class="form-control" type="date" name="dob" /></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="list-group-item form-control">Gender</td>
+                                                    <td>
+                                                        <select class="form-control" name="gender"><option>Not Specified</option><option>Male</option><option>Female</option></select>
+                                                    </td>
+                                                </tr>
+                                                <tr><td colspan="2"><button onclick="submit" class="form-control" ><span class="label label-success">Register</span></button></td></tr>
+                                                            
+                                            </table>
+                                        </form>
+                                    </div>
 				</div>
 			</div>
 			<script>
 				$('.toggle').click(function(){
 				  // Switches the Icon
-				  $(this).children('i').toggleClass('fa-pencil');
+				  $(this).children('i').toggleClass('');
 				  // Switches the forms  
-				  $('.form').animate({
+				  $('.signup').animate({
+					height: "toggle",
+					'padding-top': 'toggle',
+					'padding-bottom': 'toggle',
+					opacity: "toggle"
+				  }, "slow");
+                                  $('.signin').animate({
+					height: "toggle",
+					'padding-top': 'toggle',
+					'padding-bottom': 'toggle',
+					opacity: "toggle"
+				  }, "slow");
+                                  $(this).animate({
 					height: "toggle",
 					'padding-top': 'toggle',
 					'padding-bottom': 'toggle',

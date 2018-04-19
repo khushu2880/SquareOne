@@ -63,7 +63,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="privacy about">
 			<h3>About Us</h3>
                             <div class="col-md-6 agile_about_grid_right">
-					<img src="images/31.jpg" alt=" " class="img-responsive" />
+					
+                                        <img src="../images/sq1.jpeg" alt="" class="img-responsive" >
 				</div>
 				<div class="col-md-6 agile_about_grid_left">
 					<p>
@@ -88,38 +89,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<h3>Meet Our Amazing Team</h3>
 			<div class="agileits_team_grids">
 				<div class="col-md-3 agileits_team_grid">
-					<img src="images/32.jpg" alt=" " class="img-responsive" />
-					<h4>Martin Paul</h4>
-					<p>Manager</p>
-					<ul class="agileits_social_icons agileits_social_icons_team">
-						<li><a href="#" class="facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-						<li><a href="#" class="twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-						<li><a href="#" class="google"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-					</ul>
-				</div>
-				<div class="col-md-3 agileits_team_grid">
-					<img src="images/33.jpg" alt=" " class="img-responsive" />
-					<h4>Michael Rick</h4>
-					<p>Supervisor</p>
-					<ul class="agileits_social_icons agileits_social_icons_team">
-						<li><a href="#" class="facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-						<li><a href="#" class="twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-						<li><a href="#" class="google"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-					</ul>
-				</div>
-				<div class="col-md-3 agileits_team_grid">
-					<img src="images/34.jpg" alt=" " class="img-responsive" />
-					<h4>Thomas Carl</h4>
-					<p>Supervisor</p>
-					<ul class="agileits_social_icons agileits_social_icons_team">
-						<li><a href="#" class="facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-						<li><a href="#" class="twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-						<li><a href="#" class="google"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-					</ul>
-				</div>
-				<div class="col-md-3 agileits_team_grid">
-					<img src="images/35.jpg" alt=" " class="img-responsive" />
-					<h4>Laura Lee</h4>
+					<img src="../images/muku.jpg" alt="" class="img-responsive"/>
+					<h4>Mukul Pahwa</h4>
 					<p>CEO</p>
 					<ul class="agileits_social_icons agileits_social_icons_team">
 						<li><a href="#" class="facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
@@ -127,6 +98,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<li><a href="#" class="google"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
 					</ul>
 				</div>
+				<div class="col-md-3 agileits_team_grid">
+					<img src="../images/s_g.jpg" alt="" class="img-responsive"/>
+					<h4>Muskaan Garg</h4>
+					<p>CEO</p>
+					<ul class="agileits_social_icons agileits_social_icons_team">
+						<li><a href="#" class="facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+						<li><a href="#" class="twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+						<li><a href="#" class="google"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+					</ul>
+				</div>
+				<div class="col-md-3 agileits_team_grid">
+					<img src="../images/s_s.jpg" alt="" class="img-responsive"/>
+					<h4>Muskaan Sharma</h4>
+					<p>CEO</p>
+					<ul class="agileits_social_icons agileits_social_icons_team">
+						<li><a href="#" class="facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+						<li><a href="#" class="twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+						<li><a href="#" class="google"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+					</ul>
+				</div>
+				
+				
 				<div class="clearfix"> </div>
 			</div>
 		</div>

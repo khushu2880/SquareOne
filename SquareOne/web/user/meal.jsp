@@ -70,15 +70,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<img src="images/24.jpg" alt=" " class="img-responsive">
 						<div class="mask">
 							<h4>Store</h4>
-							<p>Juicy Meat with gravy</p>
+							<p>Juicy Fresh Chicken </p>
 						</div>
 					</div>
-					<h4>Frozen Meat</h4>
-					<ol>
-						<li>sunt in culpa qui officia</li>
-						<li>commodo consequat</li>
-						<li>sed do eiusmod tempor incididunt</li>
-					</ol>
+					<h4>Roasted Chicken</h4>
+					
 				</div>
 				<div class="clearfix"> </div>
 			</div>

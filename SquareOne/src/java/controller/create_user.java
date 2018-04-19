@@ -27,22 +27,32 @@ public class create_user extends HttpServlet {
         
         try{
             
+            
+            
+            String fname = request.getParameter("fname");
+            String lname = request.getParameter("lname");
             String username = request.getParameter("username");
             String password = request.getParameter("password");
             String email = request.getParameter("email");
             String phone = request.getParameter("phone");
-            
-                 
+            String dateofbirth = request.getParameter("date");
+            String gender = request.getParameter("gender");
+                         
             
             
             
             
             UserModel usermodel = new UserModel();
             
+            usermodel.setFname(fname);
+            usermodel.setLname(lname);
             usermodel.setUsername(username);
             usermodel.setPass(password);
             usermodel.setEmail(email);
             usermodel.setPhone(phone);
+            usermodel.setDateofbirth(dateofbirth);
+            usermodel.setGender(gender);
+            
             
                        
             userAccount uA = new userAccount();

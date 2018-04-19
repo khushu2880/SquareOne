@@ -1,5 +1,6 @@
 package controller;
 
+import com.oreilly.servlet.MultipartRequest;
 import dao_impl.item;
 import java.io.File;
 import java.io.IOException;
@@ -42,24 +43,44 @@ public class add_new_item extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         
         String Path =   "C:/wamp64/www/picture/";
-        String foodimage = "";
-        
+              
         
         try{
             DiskFileItemFactory factory = new DiskFileItemFactory();
             ServletFileUpload upload = new ServletFileUpload(factory);
             
+            MultipartRequest m=new MultipartRequest(request,Path);  
+            String foodimage  =m.getFilesystemName("file");  
+            
+            String item_name= m.getParameter("n_item") ;
+            String item_quantity=m.getParameter("n_item_quantity") ;
+            String item_price=m.getParameter("n_item_price") ;
+                        
+            String category=m.getParameter("category") ;
+            String item_desc=m.getParameter("description") ;
+            
             List list = upload.parseRequest(request);
             Iterator iterator = list.iterator();
+            do {
+                if (!iterator.hasNext()) {
+                    break;
+                }
+                FileItem fi = (FileItem) iterator.next();
+                if (!fi.isFormField() && !fi.getName().trim().equals("")) {
+
+                    String field_Name = fi.getFieldName();
+
+                    if (field_Name.equals("file")) {
+
+                       String stu_img_name = "s" + System.currentTimeMillis() + fi.getName().substring(fi.getName().lastIndexOf("."));
+                       upload_file1(fi, Path+stu_img_name);
+                    }
+                }
+                } while (true);
             
-            String item_name="" ;
-            String item_quantity="";
-            
-            String item_price="";
-            String category="";
-            String item_desc="" ;
             
             
+            /* 
             
             do {
                 if (!iterator.hasNext()) {
@@ -94,7 +115,7 @@ public class add_new_item extends HttpServlet {
                     }
                 }
             }while (true);
-            
+            */
             
             String item_visibility = "1";
             

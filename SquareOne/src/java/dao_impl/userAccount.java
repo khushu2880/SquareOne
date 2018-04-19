@@ -28,13 +28,23 @@ public class userAccount implements userAccount_dao
         try{                    
            
             //Step 3: Make the Query
-           java.sql.PreparedStatement ps=con.prepareStatement("Insert into user_accounts set username=?, password= ? , email=?,phnum= ?");
+           java.sql.PreparedStatement ps=con.prepareStatement("Insert into user_accounts set firstname=?,username=?, password= ? , email=?,phnum= ?");
             
             ps.setString(1,usermodel.getUsername());
             ps.setString(2,usermodel.getPass());
             ps.setString(3,usermodel.getEmail());
             ps.setString(4,usermodel.getPhone());
             ps.executeUpdate();
+            java.sql.PreparedStatement ps1=con.prepareStatement("INSERT INTO `user_data` (`sno`, `username`, `firstname`, `lastname`, `dob`, `gender`, `email`, `mobnumber`) VALUES (NULL, ?, ?, ?, ?, ?,?,?)");
+            ps1.setString(1,usermodel.getUsername());
+            ps1.setString(2,usermodel.getFname());
+            ps1.setString(3,usermodel.getLname());
+            ps1.setString(4,usermodel.getDateofbirth());
+            ps1.setString(5,usermodel.getGender());
+            ps1.setString(6,usermodel.getEmail());
+            ps1.setString(7,usermodel.getPhone());
+            
+                           
             con.close();
             return "success";
             

@@ -5,9 +5,10 @@
  */
 package dao;
 
+import model.CartItem;
 import model.UserModel;
 
 public interface userAccount_dao {
     public String new_user(UserModel usermodel);
-    
+    public String addItemToCart(CartItem cartitem);
 }

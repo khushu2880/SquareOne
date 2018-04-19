@@ -4,6 +4,8 @@
     Author     : mukul
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -37,8 +39,7 @@
 					<div class="mega-dropdown-menu">
 						<div class="w3ls_vegetables">
 							<ul class="dropdown-menu drp-mnu">
-								<li><a href="login.jsp">Login</a></li> 
-								<li><a href="login.jsp">Sign Up</a></li>
+                                                                <li><a href="login.jsp">Login</a></li> 
 							</ul>
 						</div>                  
 					</div>	
@@ -46,7 +47,7 @@
 			</ul>
 		</div>
 		<div class="w3l_header_right1">
-			<h2><a href="mail.html">Contact Us</a></h2>
+			<h2><a href="mail.jsp">Contact Us</a></h2>
 		</div>
 		<div class="clearfix"> </div>
 	</div>
@@ -71,10 +72,11 @@
 			<div class="w3ls_logo_products_left">
 				<h1><a href="products.jsp"></a></h1>
 			</div>
+                    <div><h1>Square One</h1></div>
 			<div class="w3ls_logo_products_left1">
 				<ul class="special_items">
 					<li><a href="about.jsp">About Us</a><i>/</i></li>
-					<li><a href="products.jsp">Products</a><i>/</i></li>
+					<li><a href="view_all">Products</a><i>/</i></li>
                                         <li><a href="myorders.jsp">My Orders</a></li>
 				</ul>
 			</div>

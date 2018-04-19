@@ -7,16 +7,12 @@ JSP
 login.jsp
 + 1 user_header.jsp
 user/user_header.jsp
-+ 2 user_navbar.jsp
-user/user_navbar.jsp
-+ 3 user_footer.jsp
++ 2 user_footer.jsp
 user/user_footer.jsp
 *L
-5,50:51
-5#1,87:101
-54#0,17:187
-5#2,64:204
-70#0,54:267
-5#3,60:321
-123#0,60:380
+5,51:50
+5#1,89:101
+55#0,105:189
+5#2,60:294
+159#0,60:353
 *E
