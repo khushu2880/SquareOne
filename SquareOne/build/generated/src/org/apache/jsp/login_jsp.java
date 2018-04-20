@@ -7,6 +7,12 @@ import javax.servlet.jsp.*;
 public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
+static private org.apache.jasper.runtime.ProtectedFunctionMapper _jspx_fnmap_0;
+
+static {
+  _jspx_fnmap_0= org.apache.jasper.runtime.ProtectedFunctionMapper.getMapForFunction("fn:length", org.apache.taglibs.standard.functions.Functions.class, "length", new Class[] {java.lang.Object.class});
+}
+
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
 
   private static java.util.List<String> _jspx_dependants;
@@ -17,10 +23,23 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
     _jspx_dependants.add("/user/user_footer.jsp");
   }
 
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_forEach_varStatus_var_items;
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_if_test;
+
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
 
   public java.util.List<String> getDependants() {
     return _jspx_dependants;
+  }
+
+  public void _jspInit() {
+    _jspx_tagPool_c_forEach_varStatus_var_items = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+    _jspx_tagPool_c_if_test = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+  }
+
+  public void _jspDestroy() {
+    _jspx_tagPool_c_forEach_varStatus_var_items.release();
+    _jspx_tagPool_c_if_test.release();
   }
 
   public void _jspService(HttpServletRequest request, HttpServletResponse response)
@@ -108,83 +127,129 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <head>\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
       out.write("        <title>JSP Page</title>\n");
+      out.write("        <link href=\"css/style.css\" rel=\"stylesheet\" type=\"text/css\"/>\n");
+      out.write("        <link href=\"user/css/style.css\" rel=\"stylesheet\" type=\"text/css\"/>\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
       out.write("        <div class=\"w3l_offers\">\n");
-      out.write("\t\t\t<a href=\"products.jsp\">Products</a>\n");
-      out.write("\t\t</div>\n");
-      out.write("\t\t<div class=\"w3l_search\">\n");
-      out.write("\t\t\t<form action=\"#\" method=\"post\">\n");
-      out.write("\t\t\t\t<input type=\"text\" name=\"Product\" value=\"Search a product...\" onfocus=\"this.value = '';\" onblur=\"if (this.value == '') {this.value = 'Search a product...';}\" required=\"\">\n");
-      out.write("\t\t\t\t<input type=\"submit\" value=\" \">\n");
-      out.write("\t\t\t</form>\n");
-      out.write("\t\t</div>\n");
-      out.write("\t\t<div class=\"product_list_header\">  \n");
-      out.write("\t\t\t<form action=\"#\" method=\"post\" class=\"last\">\n");
-      out.write("                <fieldset>\n");
-      out.write("                    <input type=\"hidden\" name=\"cmd\" value=\"_cart\" />\n");
-      out.write("                    <input type=\"hidden\" name=\"display\" value=\"1\" />\n");
-      out.write("                    <input type=\"submit\" name=\"submit\" value=\"View your cart\" class=\"button\" />\n");
-      out.write("                </fieldset>\n");
+      out.write("            <a href=\"products.jsp\">Products</a>\n");
+      out.write("        </div>\n");
+      out.write("        <div class=\"w3l_search\">\n");
+      out.write("            <form action=\"#\" method=\"post\">\n");
+      out.write("                <input type=\"text\" name=\"Product\" value=\"Search a product...\" onfocus=\"this.value = '';\" onblur=\"if (this.value == '') {\n");
+      out.write("                                            this.value = 'Search a product...';\n");
+      out.write("                                        }\" required=\"\">\n");
+      out.write("                <input type=\"submit\" value=\" \">\n");
       out.write("            </form>\n");
-      out.write("\t\t</div>\n");
-      out.write("\t\t<div class=\"w3l_header_right\">\n");
-      out.write("\t\t\t<ul>\n");
-      out.write("\t\t\t\t<li class=\"dropdown profile_details_drop\">\n");
-      out.write("\t\t\t\t\t<a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\"><i class=\"fa fa-user\" aria-hidden=\"true\"></i><span class=\"caret\"></span></a>\n");
-      out.write("\t\t\t\t\t<div class=\"mega-dropdown-menu\">\n");
-      out.write("\t\t\t\t\t\t<div class=\"w3ls_vegetables\">\n");
-      out.write("\t\t\t\t\t\t\t<ul class=\"dropdown-menu drp-mnu\">\n");
-      out.write("                                                                <li><a href=\"login.jsp\">Login</a></li> \n");
-      out.write("\t\t\t\t\t\t\t</ul>\n");
-      out.write("\t\t\t\t\t\t</div>                  \n");
-      out.write("\t\t\t\t\t</div>\t\n");
-      out.write("\t\t\t\t</li>\n");
-      out.write("\t\t\t</ul>\n");
-      out.write("\t\t</div>\n");
-      out.write("\t\t<div class=\"w3l_header_right1\">\n");
-      out.write("\t\t\t<h2><a href=\"mail.jsp\">Contact Us</a></h2>\n");
-      out.write("\t\t</div>\n");
-      out.write("\t\t<div class=\"clearfix\"> </div>\n");
-      out.write("\t</div>\n");
-      out.write("<!-- script-for sticky-nav -->\n");
-      out.write("\t<script>\n");
-      out.write("\t$(document).ready(function() {\n");
-      out.write("\t\t var navoffeset=$(\".agileits_header\").offset().top;\n");
-      out.write("\t\t $(window).scroll(function(){\n");
-      out.write("\t\t\tvar scrollpos=$(window).scrollTop(); \n");
-      out.write("\t\t\tif(scrollpos >=navoffeset){\n");
-      out.write("\t\t\t\t$(\".agileits_header\").addClass(\"fixed\");\n");
-      out.write("\t\t\t}else{\n");
-      out.write("\t\t\t\t$(\".agileits_header\").removeClass(\"fixed\");\n");
-      out.write("\t\t\t}\n");
-      out.write("\t\t });\n");
-      out.write("\t\t \n");
-      out.write("\t});\n");
-      out.write("\t</script>\n");
-      out.write("<!-- //script-for sticky-nav -->\n");
-      out.write("\t<div class=\"logo_products\">\n");
-      out.write("\t\t<div class=\"container\">\n");
-      out.write("\t\t\t<div class=\"w3ls_logo_products_left\">\n");
-      out.write("\t\t\t\t<h1><a href=\"products.jsp\"></a></h1>\n");
-      out.write("\t\t\t</div>\n");
-      out.write("                    <div><h1>Square One</h1></div>\n");
-      out.write("\t\t\t<div class=\"w3ls_logo_products_left1\">\n");
-      out.write("\t\t\t\t<ul class=\"special_items\">\n");
-      out.write("\t\t\t\t\t<li><a href=\"about.jsp\">About Us</a><i>/</i></li>\n");
-      out.write("\t\t\t\t\t<li><a href=\"view_all\">Products</a><i>/</i></li>\n");
-      out.write("                                        <li><a href=\"myorders.jsp\">My Orders</a></li>\n");
-      out.write("\t\t\t\t</ul>\n");
-      out.write("\t\t\t</div>\n");
-      out.write("\t\t\t<div class=\"w3ls_logo_products_left1\">\n");
-      out.write("\t\t\t\t<ul class=\"phone_email\">\n");
-      out.write("\t\t\t\t\t<li><i class=\"fa fa-phone\" aria-hidden=\"true\"></i>123 456 7890</li>\n");
-      out.write("\t\t\t\t\t<li><i class=\"fa fa-envelope-o\" aria-hidden=\"true\"></i><a href=\"mailto:store@grocery.com\">contact@square1.com</a></li>\n");
-      out.write("\t\t\t\t</ul>\n");
-      out.write("\t\t\t</div>\n");
-      out.write("\t\t\t<div class=\"clearfix\"> </div>\n");
-      out.write("\t\t</div>\n");
-      out.write("    </body>\n");
+      out.write("        </div>\n");
+      out.write("        <div class=\"product_list_header\">  \n");
+      out.write("            \n");
+      out.write("            <button onclick=\"view_cart();\" style=\"background-color: transparent;border: none;\">\n");
+      out.write("                <input type=\"hidden\" name=\"cmd\" value=\"_cart\" />\n");
+      out.write("                <input type=\"hidden\" name=\"display\" value=\"0\" />\n");
+      out.write("                <input type=\"submit\" name=\"submit\" value=\"View your cart\" class=\"button\" />\n");
+      out.write("            </button>\n");
+      out.write("                    </div>\n");
+      out.write("        <div class=\"w3l_header_right\">\n");
+      out.write("            <ul>\n");
+      out.write("                <li class=\"dropdown profile_details_drop\">\n");
+      out.write("                    <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\"><i class=\"fa fa-user\" aria-hidden=\"true\"></i><span class=\"caret\"></span></a>\n");
+      out.write("                    <div class=\"mega-dropdown-menu\">\n");
+      out.write("                        <div class=\"w3ls_vegetables\">\n");
+      out.write("                            <ul class=\"dropdown-menu drp-mnu\">\n");
+      out.write("                                <li><a href=\"login.jsp\">Login</a></li> \n");
+      out.write("                            </ul>\n");
+      out.write("                        </div>                  \n");
+      out.write("                    </div>\t\n");
+      out.write("                </li>\n");
+      out.write("            </ul>\n");
+      out.write("        </div>\n");
+      out.write("        <div class=\"w3l_header_right1\">\n");
+      out.write("            <h2><a href=\"mail.jsp\">Contact Us</a></h2>\n");
+      out.write("        </div>\n");
+      out.write("        <div class=\"clearfix\"> </div>\n");
+      out.write("    </div>\n");
+      out.write("    <!-- script-for sticky-nav -->\n");
+      out.write("    <script>\n");
+      out.write("    function view_cart()\n");
+      out.write("    {\n");
+      out.write("        \n");
+      out.write("        $('#minicart').show();\n");
+      out.write("    }\n");
+      out.write("    \n");
+      out.write("    function hide_cart()\n");
+      out.write("    {\n");
+      out.write("        $('#minicart').hide();\n");
+      out.write("    }\n");
+      out.write("    \n");
+      out.write("    \n");
+      out.write("    \n");
+      out.write("        $(document).ready(function () {\n");
+      out.write("            var navoffeset = $(\".agileits_header\").offset().top;\n");
+      out.write("            $(window).scroll(function () {\n");
+      out.write("                var scrollpos = $(window).scrollTop();\n");
+      out.write("                if (scrollpos >= navoffeset) {\n");
+      out.write("                    $(\".agileits_header\").addClass(\"fixed\");\n");
+      out.write("                } else {\n");
+      out.write("                    $(\".agileits_header\").removeClass(\"fixed\");\n");
+      out.write("                }\n");
+      out.write("            });\n");
+      out.write("\n");
+      out.write("        });\n");
+      out.write("        \n");
+      out.write("        function checkout()\n");
+      out.write("        {\n");
+      out.write("            \n");
+      out.write("\n");
+      out.write("            document.location.href=\"/SquareOne/checkout\";\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("        }\n");
+      out.write("    </script>\n");
+      out.write("    <!-- //script-for sticky-nav -->\n");
+      out.write("    <div class=\"logo_products\">\n");
+      out.write("        <div class=\"container\">\n");
+      out.write("            <div class=\"w3ls_logo_products_left\">\n");
+      out.write("                <h1><a href=\"products.jsp\"></a></h1>\n");
+      out.write("            </div>\n");
+      out.write("            <div><h1>Square One</h1></div>\n");
+      out.write("            <div class=\"w3ls_logo_products_left1\">\n");
+      out.write("                <ul class=\"special_items\">\n");
+      out.write("                    <li><a href=\"about.jsp\">About Us</a><i>/</i></li>\n");
+      out.write("                    <li><a href=\"view_all\">Products</a><i>/</i></li>\n");
+      out.write("                    <li><a href=\"myorders.jsp\">My Orders</a></li>\n");
+      out.write("                </ul>\n");
+      out.write("            </div>\n");
+      out.write("            <div class=\"w3ls_logo_products_left1\">\n");
+      out.write("                <ul class=\"phone_email\">\n");
+      out.write("                    <li><i class=\"fa fa-phone\" aria-hidden=\"true\"></i>123 456 7890</li>\n");
+      out.write("                    <li><i class=\"fa fa-envelope-o\" aria-hidden=\"true\"></i><a href=\"mailto:store@grocery.com\">contact@square1.com</a></li>\n");
+      out.write("                </ul>\n");
+      out.write("            </div>\n");
+      out.write("            <div class=\"clearfix\"> </div>\n");
+      out.write("        </div>\n");
+      out.write("        <div id='minicart'>\n");
+      out.write("            <button type=\"button\" onclick=\"hide_cart()\" class=\"minicart-closer\">×</button>\n");
+      out.write("        <ul>\n");
+      out.write("            \n");
+      out.write("            ");
+      if (_jspx_meth_c_forEach_0(_jspx_page_context))
+        return;
+      out.write("\n");
+      out.write("            \n");
+      out.write("                </ul>\n");
+      out.write("        <div class=\"minicart-footer\">\n");
+      out.write("            <div class=\"minicart-subtotal\">\n");
+      out.write("                Total: &#8377; ");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${cart[fn:length(cart)-1].bill}", java.lang.String.class, (PageContext)_jspx_page_context, _jspx_fnmap_0));
+      out.write("           \n");
+      out.write("            </div>            \n");
+      out.write("            <button class=\"minicart-submit label-primary\" onclick=\"checkout()\" type=\"button\" >Check Out</button>\n");
+      out.write("        \n");
+      out.write("        </div>\n");
+      out.write("</div>\n");
+      out.write("</div>\n");
+      out.write("</body>\n");
       out.write("</html>\n");
       out.write("\n");
       out.write("\t</div>\n");
@@ -348,6 +413,7 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                <div class=\"clearfix\"> </div>\n");
       out.write("            </div>\n");
       out.write("        </div>\n");
+      out.write("        \n");
       out.write("    </body>\n");
       out.write("</html>\n");
       out.write("\n");
@@ -421,5 +487,96 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
     } finally {
       _jspxFactory.releasePageContext(_jspx_page_context);
     }
+  }
+
+  private boolean _jspx_meth_c_forEach_0(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:forEach
+    org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_forEach_0 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _jspx_tagPool_c_forEach_varStatus_var_items.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
+    _jspx_th_c_forEach_0.setPageContext(_jspx_page_context);
+    _jspx_th_c_forEach_0.setParent(null);
+    _jspx_th_c_forEach_0.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${cart}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    _jspx_th_c_forEach_0.setVar("item");
+    _jspx_th_c_forEach_0.setVarStatus("status");
+    int[] _jspx_push_body_count_c_forEach_0 = new int[] { 0 };
+    try {
+      int _jspx_eval_c_forEach_0 = _jspx_th_c_forEach_0.doStartTag();
+      if (_jspx_eval_c_forEach_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+        do {
+          out.write("\n");
+          out.write("                ");
+          if (_jspx_meth_c_if_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_0, _jspx_page_context, _jspx_push_body_count_c_forEach_0))
+            return true;
+          out.write("\n");
+          out.write("            ");
+          int evalDoAfterBody = _jspx_th_c_forEach_0.doAfterBody();
+          if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+            break;
+        } while (true);
+      }
+      if (_jspx_th_c_forEach_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+        return true;
+      }
+    } catch (Throwable _jspx_exception) {
+      while (_jspx_push_body_count_c_forEach_0[0]-- > 0)
+        out = _jspx_page_context.popBody();
+      _jspx_th_c_forEach_0.doCatch(_jspx_exception);
+    } finally {
+      _jspx_th_c_forEach_0.doFinally();
+      _jspx_tagPool_c_forEach_varStatus_var_items.reuse(_jspx_th_c_forEach_0);
+    }
+    return false;
+  }
+
+  private boolean _jspx_meth_c_if_0(javax.servlet.jsp.tagext.JspTag _jspx_th_c_forEach_0, PageContext _jspx_page_context, int[] _jspx_push_body_count_c_forEach_0)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:if
+    org.apache.taglibs.standard.tag.rt.core.IfTag _jspx_th_c_if_0 = (org.apache.taglibs.standard.tag.rt.core.IfTag) _jspx_tagPool_c_if_test.get(org.apache.taglibs.standard.tag.rt.core.IfTag.class);
+    _jspx_th_c_if_0.setPageContext(_jspx_page_context);
+    _jspx_th_c_if_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_forEach_0);
+    _jspx_th_c_if_0.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${! status.last}", java.lang.Boolean.class, (PageContext)_jspx_page_context, null)).booleanValue());
+    int _jspx_eval_c_if_0 = _jspx_th_c_if_0.doStartTag();
+    if (_jspx_eval_c_if_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+      do {
+        out.write("\n");
+        out.write("                <li class=\"minicart-item minicart-item-changed\">\n");
+        out.write("                <div class=\"mini minicart-details-name\">\n");
+        out.write("                    <a class=\" minicart-name sfont\" href=\"\">");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${item.itemname}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write("</a>\n");
+        out.write("                \n");
+        out.write("                </div>\n");
+        out.write("                    \n");
+        out.write("                    \n");
+        out.write("                    <div class=\"mini minicart-details-quantity\">\n");
+        out.write("                        <input readonly class=\"minicart-quantity sfont\" data-minicart-idx=\"0\" name=\"quantity_1\" type=\"text\" pattern=\"[0-9]*\" value=\"");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${item.itemquantity}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write("\" autocomplete=\"off\">\n");
+        out.write("                    </div>\n");
+        out.write("                    <div class=\"mini minicart-details-remove\">\n");
+        out.write("                        <button type=\"button\" class=\"minicart-remove sfont\" data-minicart-idx=\"0\">×</button> \n");
+        out.write("                    </div>            \n");
+        out.write("                    <div class=\"mini minicart-details-price\">\n");
+        out.write("                        <span class=\"minicart-price sfont\">&#8377;");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${item.itemprice}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write("</span>            \n");
+        out.write("                    </div>\n");
+        out.write("                </li>\n");
+        out.write("                ");
+        int evalDoAfterBody = _jspx_th_c_if_0.doAfterBody();
+        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+          break;
+      } while (true);
+    }
+    if (_jspx_th_c_if_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_if_test.reuse(_jspx_th_c_if_0);
+      return true;
+    }
+    _jspx_tagPool_c_if_test.reuse(_jspx_th_c_if_0);
+    return false;
   }
 }

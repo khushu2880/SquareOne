@@ -45,11 +45,32 @@ jQuery(document).ready(function ($) {
         $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1000);
     });
 });
+
+function add_to_cart(sno)
+            {
+
+                alert(sno);
+                $.ajax({
+                    type: "POST",
+                    url: "add_item_cart",
+                    data: {sno: sno},
+                    success: function (result)
+                    {
+                        alert(result);
+                        if (result.trim() === 'success') {
+                            location.reload();
+                        } else {
+                            //  Not able to Add Item";
+                        }
+                    }
+                });
+
+            }
         </script>
         <!-- start-smoth-scrolling -->
     </head>
 
-    <body>
+    <body class="minicart-showing">
         <!-- header -->
         <div class="agileits_header">
             <%@include file="user_header.jsp"%>
@@ -87,19 +108,7 @@ jQuery(document).ready(function ($) {
                                                         <h4>&#8377;${data.Item_price}</h4>
                                                     </div>
                                                     <div class="snipcart-details">
-                                                        <form action="#" method="post">
-                                                            <fieldset>
-                                                                <input type="hidden" name="cmd" value="_cart" />
-                                                                <input type="hidden" name="add" value="1" />
-                                                                <input type="hidden" name="business" value=" " />
-                                                                <input type="hidden" name="item_name" value="${data.Item_name}" />
-                                                                <input type="hidden" name="amount" value="${data.Item_name}" />
-                                                                <input type="hidden" name="currency_code" value="INR" />
-                                                                <input type="hidden" name="return" value=" " />
-                                                                <input type="hidden" name="cancel_return" value=" " />
-                                                                <input type="submit" name="submit" value="Add to cart" class="button" />
-                                                            </fieldset>
-                                                        </form>
+                                                        <input type="button" onclick="add_to_cart(${data.sno})" name="submit" value="Add to cart" class="button" />                                                      
                                                     </div>
                                                 </div>
                                             </figure>
@@ -157,27 +166,5 @@ $(document).ready(function () {
     });
 </script>
 <!-- //here ends scrolling icon -->
-<script src="js/minicart.js"></script>
-<script>
-    paypal.minicart.render();
-
-    paypal.minicart.cart.on('checkout', function (evt) {
-        var items = this.items(),
-                len = items.length,
-                total = 0,
-                i;
-
-        // Count the number of each item in the cart
-        for (i = 0; i < len; i++) {
-            total += items[i].get('quantity');
-        }
-
-        if (total < 3) {
-            alert('The minimum order quantity is 3. Please add more to your shopping cart before checking out');
-            evt.preventDefault();
-        }
-    });
-
-</script>
 </body>
 </html>

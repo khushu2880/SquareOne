@@ -38,6 +38,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
 		});
 	});
+        function add_to_cart(sno)
+            {
+
+
+                $.ajax({
+                    type: "POST",
+                    url: "add_item_cart",
+                    data: {sno: sno},
+                    success: function (result)
+                    {
+                        alert(result);
+                        if (result.trim() === 'success') {
+                            location.reload();
+                        } else {
+                            //  Not able to Add Item";
+                        }
+                    }
+                });
+
+            }
 </script>
 <!-- start-smoth-scrolling -->
 </head>
@@ -94,20 +114,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											<h4>&#8377;${data.Item_price}</h4>
 										</div>
 										<div class="snipcart-details">
-											<form action="#" method="post">
-												<fieldset>
-													<input type="hidden" name="cmd" value="_cart" />
-													<input type="hidden" name="add" value="1" />
-													<input type="hidden" name="business" value=" " />
-													<input type="hidden" name="item_name" value="${data.Item_name}" />
-													<input type="hidden" name="amount" value="${data.Item_name}" />
-													<input type="hidden" name="currency_code" value="INR" />
-													<input type="hidden" name="return" value=" " />
-													<input type="hidden" name="cancel_return" value=" " />
-													<input type="submit" name="submit" value="Add to cart" class="button" />
-												</fieldset>
-											</form>
-										</div>
+                                                                                    <input type="button" onclick="add_to_cart(${data.sno})" name="submit" value="Add to cart" class="button" />
+                                                                                </div>
 									</div>
 								</figure>
 							</div>

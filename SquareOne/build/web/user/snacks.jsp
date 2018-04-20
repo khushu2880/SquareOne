@@ -66,37 +66,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<h3 class="w3l_fruit">Snacks</h3>
 				
 				<div class="w3ls_w3l_banner_nav_right_grid1 w3ls_w3l_banner_nav_right_grid1_veg">
-					<div class="col-md-3 w3ls_w3l_banner_left w3ls_w3l_banner_left_asdfdfd">
-						<div class="hover14 column">
-						<div class="agile_top_brand_left_grid w3l_agile_top_brand_left_grid">
-							<div class="agile_top_brand_left_grid1">
-								<figure>
-									<div class="snipcart-item block">
-										<div class="snipcart-thumb">
-											<a href="single.html"><img src="images/41.png" alt=" " class="img-responsive" /></a>
-											<p>masala bread (500 gm)</p>
-											<h4>$3.00 <span>$5.00</span></h4>
-										</div>
-										<div class="snipcart-details">
-											<form action="#" method="post">
-												<fieldset>
-													<input type="hidden" name="cmd" value="_cart" />
-													<input type="hidden" name="add" value="1" />
-													<input type="hidden" name="business" value=" " />
-													<input type="hidden" name="item_name" value="masala bread" />
-													<input type="hidden" name="amount" value="3.00" />
-													<input type="hidden" name="discount_amount" value="1.00" />
-													<input type="hidden" name="currency_code" value="USD" />
-													<input type="hidden" name="return" value=" " />
-													<input type="hidden" name="cancel_return" value=" " />
-													<input type="submit" name="submit" value="Add to cart" class="button" />
-												</fieldset>
-											</form>
-										</div>
-									</div>
-								</figure>
-							</div>
-						</div>
+					<c:forEach items="${list}" var="data">	
+                            <div class="col-md-3 w3ls_w3l_banner_left w3ls_w3l_banner_left_asdfdfd">
+                                <div class="hover14 column">
+                                    <div class="agile_top_brand_left_grid w3l_agile_top_brand_left_grid">
+                                        <div class="agile_top_brand_left_grid1">
+                                            <figure>
+                                                <div class="snipcart-item block">
+                                                    <div class="snipcart-thumb">
+                                                        <a href="single.html"><img src="${data.Item_image}" alt=" " class="img-responsive" /></a>
+                                                        <p>${data.Item_name}</p>
+                                                        <h4>&#8377;${data.Item_price}</h4>
+                                                    </div>
+                                                    <div class="snipcart-details">
+                                                        <input type="button" onclick="add_to_cart(${data.sno})" name="submit" value="Add to cart" class="button" />                                                      
+                                                    </div>
+                                                </div>
+                                            </figure>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </c:forEach>
 						</div>
 					</div>
 					

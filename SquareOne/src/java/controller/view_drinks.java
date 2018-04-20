@@ -6,6 +6,7 @@
 package controller;
 
 import dao_impl.item;
+import dao_impl.transaction;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -14,6 +15,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -28,11 +30,27 @@ public class view_drinks extends HttpServlet {
         PrintWriter out = response.getWriter();
         try 
         {
+            HttpSession session= request.getSession();
+            if(session.getAttribute("user_name")==null ||session.getAttribute("user_name").equals(""))
+            {
+                response.sendRedirect("login.jsp");
+            }
+            
+            String username = session.getAttribute("user_name").toString();
             item it = new item();
             ArrayList al = new ArrayList();
             al =  it.userViewDrinks();
             request.setAttribute("list", al);
             System.out.println(al);
+            
+            
+            
+            ArrayList cartlist = new ArrayList();
+            transaction tr = new transaction();
+            cartlist = tr.generateCheckout(username);
+            
+            request.setAttribute("cart", cartlist);
+            
             RequestDispatcher rd = request.getRequestDispatcher("user/drinks.jsp");
             rd.forward(request, response);
                         

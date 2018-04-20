@@ -21,7 +21,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author mukul
  */
-public class view_all extends HttpServlet {
+public class view_snacks extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -35,23 +35,22 @@ public class view_all extends HttpServlet {
             {
                 response.sendRedirect("login.jsp");
             }
-            String username = session.getAttribute("user_name").toString();
             
-            //Getting Menu of all Items
+            String username = session.getAttribute("user_name").toString();
             item it = new item();
             ArrayList al = new ArrayList();
-            al =  it.userViewAll();
+            al =  it.userViewSnacks();
             request.setAttribute("list", al);
             System.out.println(al);
             
-            //Getting Cart Items
+            
+            
             ArrayList cartlist = new ArrayList();
             transaction tr = new transaction();
             cartlist = tr.generateCheckout(username);
             
             request.setAttribute("cart", cartlist);
-            
-            RequestDispatcher rd = request.getRequestDispatcher("user/products.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("user/snacks.jsp");
             rd.forward(request, response);
                         
         }

@@ -68,6 +68,18 @@
         <servlet-name>create_user</servlet-name>
         <servlet-class>controller.create_user</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>add_item_cart</servlet-name>
+        <servlet-class>controller.add_item_cart</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>checkout</servlet-name>
+        <servlet-class>controller.checkout</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>view_snacks</servlet-name>
+        <servlet-class>controller.view_snacks</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>verify_admin_login</servlet-name>
         <url-pattern>/verify_admin_login</url-pattern>
@@ -131,6 +143,18 @@
     <servlet-mapping>
         <servlet-name>create_user</servlet-name>
         <url-pattern>/create_user</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>add_item_cart</servlet-name>
+        <url-pattern>/add_item_cart</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>checkout</servlet-name>
+        <url-pattern>/checkout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>view_snacks</servlet-name>
+        <url-pattern>/view_snacks</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

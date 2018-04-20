@@ -73,7 +73,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <address>
+                <address>
                     <p><%=name%></p>
                     <p><%=card_id%></p>
                     <p>#address</p>

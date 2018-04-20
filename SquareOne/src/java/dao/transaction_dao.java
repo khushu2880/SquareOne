@@ -6,7 +6,9 @@
 package dao;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
+import model.ItemModel;
 
 /**
  *
@@ -15,5 +17,6 @@ import java.util.LinkedHashMap;
 public interface transaction_dao {
     public ArrayList viewTransactions();
     public LinkedHashMap generateBill();
-  
+    public ArrayList generateCheckout(String username);
+    public String createTransaction();
 }

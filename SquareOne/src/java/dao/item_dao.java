@@ -18,5 +18,6 @@ public interface item_dao
   public ArrayList userViewAll();
   public ArrayList userViewDrinks();
   public ArrayList userViewMeals();
+  public ArrayList userViewSnacks();
 
 }

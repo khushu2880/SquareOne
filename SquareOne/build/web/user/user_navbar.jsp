@@ -58,7 +58,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>                  
 							</div>	
 						</li>
-						<li><a href="view_snack">Snacks</a></li>
+						<li><a href="view_snacks">Snacks</a></li>
                                                 
 					</ul>
 				 </div><!-- /.navbar-collapse -->

@@ -11,8 +11,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
-import model.ItemModel;
-import model.TransactionModel;
 import service.DatabaseConnection;
 
 /**
@@ -29,7 +27,7 @@ public class transaction implements transaction_dao{
             con = db.startConection();
     }
     @Override
-    public ArrayList<ItemModel> viewTransactions()
+    public ArrayList viewTransactions()
     {
         ArrayList al = new ArrayList();
         try 
@@ -71,4 +69,66 @@ public class transaction implements transaction_dao{
     }
     
     
+    
+    @Override
+    public String createTransaction()
+    {
+        return "Code not created";
+    }
+    
+    
+    @Override
+    public ArrayList generateCheckout(String username){
+        ArrayList al = new ArrayList();
+        try{
+            
+        
+        PreparedStatement ps = con.prepareStatement("Select * from users_carts where username=?");
+        ps.setString(1, username);
+        ResultSet rs= ps.executeQuery();
+        if(rs.next())
+        {
+            int bill =0;
+            String productsarray[] = (rs.getString("cart_items")).split(";");
+            for (String product_quant : productsarray) {
+                
+                String item[] = product_quant.split(":");
+                PreparedStatement itemsno_name = con.prepareStatement("Select * from stock where sno=?");
+                itemsno_name.setInt(1,Integer.parseInt(item[0]));
+                
+                ResultSet itemdetail = itemsno_name.executeQuery();
+                //System.out.println(rs2);
+                if(itemdetail.next())
+                {
+                LinkedHashMap lhm = new LinkedHashMap();
+                String url = "http://localhost/picture/"+itemdetail.getString("image");
+                lhm.put("itemsno",item[0]);
+                lhm.put("itemname", itemdetail.getString("name"));
+                lhm.put("itemprice",itemdetail.getString("price"));
+                lhm.put("itemimage",url);
+                lhm.put("itemquantity", item[1]);
+                
+                bill+=(Integer.parseInt(item[1])*Integer.parseInt(itemdetail.getString("price")));
+                al.add(lhm);
+                }
+                
+                
+                
+        }
+            LinkedHashMap lhm = new LinkedHashMap();
+            lhm.put("bill",bill);
+            al.add(lhm);
+        
+        return al;
+        }
+        else
+                System.out.println("Data no found");
+        }
+        catch(Exception ex)
+        {
+            System.out.println("ex"+ex);
+        }
+        return al;
+    }
+         
 }

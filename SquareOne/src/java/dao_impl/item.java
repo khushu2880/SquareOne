@@ -52,7 +52,8 @@ public class item implements item_dao
             
                 al.add(lhm);    
             }
-            
+           con.close();
+           db.stopConnection(); 
         }
         catch(Exception ex)
         {
@@ -84,6 +85,7 @@ public class item implements item_dao
             
             ps.executeUpdate();
             con.close();
+            db.stopConnection();
             return "success";
             
             
@@ -169,6 +171,7 @@ public class item implements item_dao
             { 
                 String url = "http://localhost/picture/"+rs.getString("image");
                 LinkedHashMap lhm = new LinkedHashMap();
+                lhm.put("sno", rs.getString("sno"));
                 lhm.put("Item_name",rs.getString("name"));
                 lhm.put("Item_quantity",rs.getString("quantity"));
                 lhm.put("Item_price",Integer.parseInt(rs.getString("price")));
@@ -206,6 +209,7 @@ public class item implements item_dao
             { 
                 String url = "http://localhost/picture/"+rs.getString("image");
                 LinkedHashMap lhm = new LinkedHashMap();
+                lhm.put("sno", rs.getString("sno"));
                 lhm.put("Item_name",rs.getString("name"));
                 lhm.put("Item_quantity",rs.getString("quantity"));
                 lhm.put("Item_price",Integer.parseInt(rs.getString("price")));
@@ -243,6 +247,7 @@ public class item implements item_dao
             { 
                 String url = "http://localhost/picture/"+rs.getString("image");
                 LinkedHashMap lhm = new LinkedHashMap();
+                lhm.put("sno", rs.getString("sno"));
                 lhm.put("Item_name",rs.getString("name"));
                 lhm.put("Item_quantity",rs.getString("quantity"));
                 lhm.put("Item_price",Integer.parseInt(rs.getString("price")));
@@ -265,6 +270,43 @@ public class item implements item_dao
     return al;
     }
     
+    @Override
+    public ArrayList<ItemModel> userViewSnacks()
+    {
+        ArrayList al = new ArrayList();
+        try 
+        {
+            PreparedStatement ps=con.prepareStatement("Select * from stock where visibility=? && category=?");
+            ps.setString(1, "1");
+            ps.setString(2, "Snack");
+            //Step5: Execute the query
+            ResultSet rs=ps.executeQuery();
+            while(rs.next())
+            { 
+                String url = "http://localhost/picture/"+rs.getString("image");
+                LinkedHashMap lhm = new LinkedHashMap();
+                lhm.put("sno", rs.getString("sno"));
+                lhm.put("Item_name",rs.getString("name"));
+                lhm.put("Item_quantity",rs.getString("quantity"));
+                lhm.put("Item_price",Integer.parseInt(rs.getString("price")));
+                lhm.put("Item_image",url);
+                lhm.put("Item_desc",rs.getString("description"));
+                lhm.put("Item_visibility",rs.getString("visibility"));
+                System.out.print(lhm);
+            
+                
+                al.add(lhm);    
+            }
+            
+        }
+        catch(Exception ex)
+        {
+            System.out.println("ex"+ex);
+        }
+    
+    
+    return al;
+    }
     
     
 }

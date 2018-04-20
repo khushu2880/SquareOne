@@ -5,13 +5,26 @@
  */
 package model;
 
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+
 /**
  *
  * @author mukul
  */
 public class CartItem {
     String username;
-    String Items;
+    String Item;
+    String Item_Quant="";
+
+    public String getItem_Quant() {
+        return Item_Quant;
+    }
+
+    public void setItem_Quant(String Item_Quant) {
+        this.Item_Quant = Item_Quant;
+    }
 
     public String getUsername() {
         return username;
@@ -21,12 +34,28 @@ public class CartItem {
         this.username = username;
     }
 
-    public String getItems() {
-        return Items;
+    public String getItem() {
+        return Item;
     }
 
-    public void setItems(String Items) {
-        this.Items = Items;
+    public void setItem(String Item) {
+        this.Item = Item;
     }
+    
+    public String hashtoItem_Quant(HashMap<String, Integer> hm)
+    {
+        
+        String Itemquantencode = "";
+        Iterator it = hm.entrySet().iterator();
+        while (it.hasNext()) {
+            Map.Entry pair = (Map.Entry)it.next();
+            Itemquantencode= Itemquantencode + pair.getKey().toString() + ":"+ pair.getValue().toString() + ";" ;
+            it.remove();
+        }
+            
+        return Itemquantencode;
+            
+    }
+    
     
 }

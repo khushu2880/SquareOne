@@ -30,6 +30,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 	
 <body>
+    
 <!-- header -->
 	<div class="agileits_header">
             <%@include file="user_header.jsp"%>
@@ -60,30 +61,33 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<table class="timetable_sub">
 					<thead>
 						<tr>
-							<th>SL No.</th>	
+							<th>S No.</th>	
 							<th>Product</th>
-							<th>Quality</th>
+							<th>Quantity</th>
 							<th>Product Name</th>
-						
 							<th>Price</th>
 							<th>Remove</th>
 						</tr>
 					</thead>
-					<tbody><tr class="rem1">
-						<td class="invert">1</td>
-						<td class="invert-image"><a href="single.html"><img src="images/1.png" alt=" " class="img-responsive"></a></td>
+					<tbody >
+                                            <% int i=1;%>
+                                            <c:forEach items="${list}" var="data">
+                                                
+                                                <tr class="rem1" style="padding: 10px;">
+						<td class="invert"><%=i++%></td>   
+						<td class="invert-image"><a href="#"><img src="${data.itemimage}" alt=" " class="img-responsive" height="120" width="120"></a></td>
 						<td class="invert">
 							 <div class="quantity"> 
 								<div class="quantity-select">                           
 									<div class="entry value-minus">&nbsp;</div>
-									<div class="entry value"><span>1</span></div>
+									<div class="entry value"><span>${data.itemquantity}</span></div>
 									<div class="entry value-plus active">&nbsp;</div>
 								</div>
 							</div>
 						</td>
-						<td class="invert">Fortune Sunflower Oil</td>
+						<td class="invert">${data.itemname}</td>
 						
-						<td class="invert">$290.00</td>
+						<td class="invert">${data.itemprice}</td>
 						<td class="invert">
 							<div class="rem">
 								<div class="close1"> </div>
@@ -91,6 +95,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 						</td>
 					</tr>
+                                            </c:forEach>
 					<tr class="rem2">
 						<td class="invert">2</td>
 						<td class="invert-image"><a href="single.html"><img src="images/3.png" alt=" " class="img-responsive"></a></td>
@@ -138,19 +143,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 				</tbody></table>
 			</div>
-			<div class="checkout-left">	
-				<div class="col-md-4 checkout-left-basket">
-					<h4>Continue to basket</h4>
-					<ul>
-						<li>Product1 <i>-</i> <span>$15.00 </span></li>
-						<li>Product2 <i>-</i> <span>$25.00 </span></li>
-						<li>Product3 <i>-</i> <span>$29.00 </span></li>
-						<li>Total Service Charges <i>-</i> <span>$15.00</span></li>
-						<li>Total <i>-</i> <span>$84.00</span></li>
-					</ul>
-				</div>
+			<div class="checkout-right">	
 				<div class="checkout-right-basket">
 				        	<a href="payment.html">Make a Payment <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+			      	</div>
+                                <div class="checkout-right-basket">
+				Bill Amount: ########
 			      	</div>
 			
 				<div class="clearfix"> </div>

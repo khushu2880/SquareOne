@@ -7,6 +7,11 @@ package dao_impl;
 
 import dao.userAccount_dao;
 import java.sql.Connection;
+import java.sql.ResultSet;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import model.CartItem;
 import model.UserModel;
 import service.DatabaseConnection;
 
@@ -57,4 +62,62 @@ public class userAccount implements userAccount_dao
             
         }
     }
+     @Override
+    public String addItemToCart(CartItem cartitem){
+        try{
+        java.sql.PreparedStatement ps=con.prepareStatement("select * from users_carts where username =?");
+        ps.setString(1, cartitem.getUsername());
+        ResultSet rs=ps.executeQuery();
+        if(rs.next())
+        {
+            HashMap<String, Integer> hm = new HashMap();
+        
+            String productsarray[] = (rs.getString("cart_items")).split(";");
+            for (String product_quant : productsarray)
+            {
+                String item[] = product_quant.split(":");
+                hm.put(item[0],Integer.parseInt(item[1]));
+            }
+            if(hm.containsKey(cartitem.getItem()))
+            {
+                int quantity = hm.get(cartitem.getItem());
+                quantity = quantity+1;
+                hm.put(cartitem.getItem(),quantity);
+            }
+            else
+            {
+                hm.put((cartitem.getItem()),1);
+            }
+            java.sql.PreparedStatement ps2=con.prepareStatement("Update users_carts set cart_items=? where username =?");
+            ps2.setString(1, cartitem.hashtoItem_Quant(hm));
+            ps2.setString(2, cartitem.getUsername());
+            ps2.executeUpdate();
+            con.close();
+        }
+        else
+        {
+            HashMap<String, Integer> hm = new HashMap();
+            hm.put(cartitem.getItem(),1);
+            java.sql.PreparedStatement ps2=con.prepareStatement("Insert into users_carts set username =?,cart_items=?" );
+            ps2.setString(1, cartitem.getUsername());
+            ps2.setString(2, cartitem.hashtoItem_Quant(hm));
+            
+            ps2.executeUpdate();
+            con.close();
+        }
+               
+        con.close();
+        return "Successfully Added";
+        
+        }
+        catch(Exception ex)
+        {
+            System.out.println("ex"+ex);
+            return "fail";
+        }
+        
+        
+        
+    }
+    
 }

@@ -3,10 +3,28 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/A:/NetBeans/SquareOne/src/java/controller/view_drinks.java</file>
+            <file>file:/A:/NetBeans/SquareOne/web/admin/stock.jsp</file>
             <file>file:/A:/NetBeans/SquareOne/web/login.jsp</file>
+            <file>file:/A:/NetBeans/SquareOne/src/java/dao/transaction_dao.java</file>
             <file>file:/A:/NetBeans/SquareOne/web/WEB-INF/web.xml</file>
+            <file>file:/A:/NetBeans/SquareOne/src/java/dao/item_dao.java</file>
             <file>file:/A:/NetBeans/SquareOne/src/java/model/UserModel.java</file>
             <file>file:/A:/NetBeans/SquareOne/src/java/controller/create_user.java</file>
+            <file>file:/A:/NetBeans/SquareOne/web/user/meal.jsp</file>
+            <file>file:/A:/NetBeans/SquareOne/src/java/controller/view_all.java</file>
+            <file>file:/A:/NetBeans/SquareOne/src/java/controller/view_snacks.java</file>
+            <file>file:/A:/NetBeans/SquareOne/web/user/user_navbar.jsp</file>
+            <file>file:/A:/NetBeans/SquareOne/src/java/controller/checkout.java</file>
+            <file>file:/A:/NetBeans/SquareOne/src/java/controller/view_meal.java</file>
+            <file>file:/A:/NetBeans/SquareOne/web/admin/manage_users.jsp</file>
+            <file>file:/A:/NetBeans/SquareOne/web/user/user_header.jsp</file>
+            <file>file:/A:/NetBeans/SquareOne/src/java/dao_impl/item.java</file>
+            <file>file:/A:/NetBeans/SquareOne/src/java/dao_impl/transaction.java</file>
+            <file>file:/A:/NetBeans/SquareOne/web/user/snacks.jsp</file>
+            <file>file:/A:/NetBeans/SquareOne/web/user/drinks.jsp</file>
+            <file>file:/A:/NetBeans/SquareOne/web/user/checkout.jsp</file>
+            <file>file:/A:/NetBeans/SquareOne/web/user/products.jsp</file>
             <file>file:/A:/NetBeans/SquareOne/src/java/dao_impl/userAccount.java</file>
         </group>
     </open-files>
