@@ -74,8 +74,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             <figure>
                                                 <div class="snipcart-item block">
                                                     <div class="snipcart-thumb">
-                                                        <a href="single.html"><img src="${data.Item_image}" alt=" " class="img-responsive" /></a>
+                                                        <a href="itemdetail?itemsno=${data.sno}"><img src="${data.Item_image}"  alt=" " class="img-responsive" >
+                                                            <img src="${data.Item_image}" alt=" " class="img-responsive" />
                                                         <p>${data.Item_name}</p>
+                                                        </a>
                                                         <h4>&#8377;${data.Item_price}</h4>
                                                     </div>
                                                     <div class="snipcart-details">

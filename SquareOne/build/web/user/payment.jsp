@@ -31,6 +31,16 @@
     </head>
 
     <body>
+        <script>
+            
+            
+            function alertlowbalance()
+            {
+                $("#balance_amt").addClass("alert alert-danger");
+                var alert = "    Your Balance is low.. Add Money to continue";
+                document.getElementById("balance_amt").innerHTML+= alert;
+            }
+        </script>
         <!-- header -->
         <div class="agileits_header">
             <%@include file="user_header.jsp"%>
@@ -60,24 +70,36 @@
                         <!--Horizontal Tab-->
                         <div id="parentHorizontalTab">
                             <ul class="resp-tabs-list hor_1">
+                                <li>Pay from Wallet</li>
                                 <li>Cash on counter (COC)</li>
                                 <li>Credit/Debit</li>
                                 <li>Netbanking</li>
+                                
                             </ul>
                             <div class="resp-tabs-container hor_1">
-
                                 <div>
-                                    <div class="vertical_post check_box_agile">
-                                        <h5>COD</h5>
-                                        <div class="checkbox">								
-                                            <div class="check_box_one cashon_delivery">
-                                                <label class="anim">
-                                                    <input type="checkbox" class="checkbox">
-                                                    <span> We also accept Credit/Debit card on delivery. Please Check with the agent.</span> 
-                                                </label> 
-                                            </div>
-
-                                        </div>
+                                <div class="vertical_post" style="height: 150px;">
+                                    <table>
+                                        <tr >
+                                        <td class="payment_td"><h4>Wallet Balance</h4></td>
+                                        <td id="balance_amt" class="payment_td" ><h4>&#8377;  ${balance}</h4></td>
+                                        <td class="payment_td"><h1><button id="addmoneybutt" class="payment_button label label-primary"><h1>Add Money</h1></button></h1></td>
+                                    </tr>
+                                        
+                                    <tr>
+                                        <td class="payment_td" ><h4>Amount to Pay</h4></td>
+                                        <td class="payment_td" ><h4>&#8377;  ${billamt}</h4></td>
+                                        <td class="payment_td"><button id="paymoneybutt" onclick="payviawallet()" class="payment_button label label-success" ><h1>Pay</h1></button></td>
+                                    </tr>
+                                    </table>
+                                </div>
+                                </div>
+                                <div>
+                                    <div class="vertical_post ">
+                                        <label class="anim">
+                                            <h3>Pay at Counter: &nbsp; &#8377;  ${billamt}</h3>
+                                                    <button style="background-color: rgb(105, 167, 78);height: 50px;border-radius: 5px;width: 200px;">Place Order</button>
+                                                </label>
                                     </div>
                                 </div>
                                 <div>
@@ -87,7 +109,7 @@
                                                 <div class="first-row form-group">
                                                     <div class="controls">
                                                         <label class="control-label">Name on Card</label>
-                                                        <input class="billing-address-name form-control" type="text" name="name" placeholder="John Smith">
+                                                        <input class="billing-address-name form-control" style="text-transform: uppercase" type="text" name="name" placeholder="NAME NAME">
                                                     </div>
                                                     <div class="w3_agileits_card_number_grids">
                                                         <div class="w3_agileits_card_number_grid_left">
@@ -264,6 +286,16 @@ $(function () {
                 );
             });
         </script>
+        
+        <script>
+            if(${balance}<${billamt})
+            {
+                $( "#paymoneybutt" ).removeClass( "label-success" ).addClass( "label-warning" );
+                $( "#paymoneybutt" ).attr("onclick","alertlowbalance()");
+            }
+        </script>
+        
+        
         <!-- here stars scrolling icon -->
         <script type="text/javascript">
             $(document).ready(function () {
@@ -303,5 +335,14 @@ $(function () {
             });
 
         </script>
+        
+        <script>
+            function payviawallet()
+            {
+                document.location.href="/SquareOne/order_from_wallet?billamt=${billamt}";
+            }
+        </script>
+        
+        
     </body>
 </html>

@@ -47,17 +47,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<ul class="nav navbar-nav nav_1">
 						<li><a href="view_all">All</a></li>
 						<li><a href="view_meal">Meals</a></li>
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Beverages<span class="caret"></span></a>
-							<div class="dropdown-menu mega-dropdown-menu w3ls_vegetables_menu">
-								<div class="w3ls_vegetables">
-									<ul>
-										<li><a href="view_drinks">Soft Drinks</a></li>
-										<li><a href="view_drinks">Juices</a></li>
-									</ul>
-								</div>                  
-							</div>	
-						</li>
+                                                <li><a href="view_drinks">Bevereges</a></li>
 						<li><a href="view_snacks">Snacks</a></li>
                                                 
 					</ul>

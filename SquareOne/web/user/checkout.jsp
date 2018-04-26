@@ -40,8 +40,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="products-breadcrumb">
 		<div class="container">
 			<ul>
-				<li><i class="fa fa-home" aria-hidden="true"></i><a href="index.html">Home</a><span>|</span></li>
-				<li>Checkout</li>
+				<li><i class="fa fa-home" aria-hidden="true"></i><a href="view_all">Home</a><span>|</span></li>
+                                <li><a href="checkout">Checkout</a></li>
 			</ul>
 		</div>
 	</div>
@@ -57,7 +57,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<h3>Chec<span>kout</span></h3>
 			
 	      <div class="checkout-right">
-					<h4>Your shopping cart contains: <span>3 Products</span></h4>
+					<h4>Your shopping cart contains: <span>${fn:length(list)-1} Products</span></h4>
 				<table class="timetable_sub">
 					<thead>
 						<tr>
@@ -71,8 +71,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</thead>
 					<tbody >
                                             <% int i=1;%>
-                                            <c:forEach items="${list}" var="data">
-                                                
+                                            <c:forEach items="${list}" var="data" varStatus="status">
+                                                <c:if test="${! status.last}">
                                                 <tr class="rem1" style="padding: 10px;">
 						<td class="invert"><%=i++%></td>   
 						<td class="invert-image"><a href="#"><img src="${data.itemimage}" alt=" " class="img-responsive" height="120" width="120"></a></td>
@@ -95,62 +95,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 						</td>
 					</tr>
+                                                </c:if>
                                             </c:forEach>
-					<tr class="rem2">
-						<td class="invert">2</td>
-						<td class="invert-image"><a href="single.html"><img src="images/3.png" alt=" " class="img-responsive"></a></td>
-						<td class="invert">
-							 <div class="quantity"> 
-								<div class="quantity-select">                           
-									<div class="entry value-minus">&nbsp;</div>
-									<div class="entry value"><span>1</span></div>
-									<div class="entry value-plus active">&nbsp;</div>
-								</div>
-							</div>
-						</td>
-						<td class="invert">Basmati Rise (5 Kg)</td>
 					
-						<td class="invert">$250.00</td>
-						<td class="invert">
-							<div class="rem">
-								<div class="close2"> </div>
-							</div>
-
-						</td>
-					</tr>
-					<tr class="rem3">
-						<td class="invert">3</td>
-						<td class="invert-image"><a href="single.html"><img src="images/2.png" alt=" " class="img-responsive"></a></td>
-						<td class="invert">
-							 <div class="quantity"> 
-								<div class="quantity-select">                           
-									<div class="entry value-minus">&nbsp;</div>
-									<div class="entry value"><span>1</span></div>
-									<div class="entry value-plus active">&nbsp;</div>
-								</div>
-							</div>
-						</td>
-						<td class="invert">Pepsi Soft Drink (2 Ltr)</td>
-						
-						<td class="invert">$15.00</td>
-						<td class="invert">
-							<div class="rem">
-								<div class="close3"> </div>
-							</div>
-	
-						</td>
-					</tr>
-
 				</tbody></table>
 			</div>
 			<div class="checkout-right">	
-				<div class="checkout-right-basket">
-				        	<a href="payment.html">Make a Payment <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+				
+                                <div class="checkout-right-basket">
+				Bill Amount: ${list[fn:length(list)-1].bill}
 			      	</div>
                                 <div class="checkout-right-basket">
-				Bill Amount: ########
+				        	<a href="payment?billamt=${list[fn:length(list)-1].bill}">Make a Payment <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
 			      	</div>
-			
 				<div class="clearfix"> </div>
 				
 			</div>

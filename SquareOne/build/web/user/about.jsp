@@ -62,18 +62,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- about -->
 		<div class="privacy about">
 			<h3>About Us</h3>
-                            <div class="col-md-6 agile_about_grid_right">
+                        <div class="col-md-6 agile_about_grid_right" style="width: auto;">
 					
                                         <img src="../images/sq1.jpeg" alt="" class="img-responsive" >
 				</div>
 				<div class="col-md-6 agile_about_grid_left">
-					<p>
+                                    <p ><h4>
 						Tired of waiting in long queues for ordering and recharge at Square One?
                                                 We here make this easy for you. Our site brings recharge and ordering system
                                                 right on your phones just a click away. Our aim is to save your time and
                                                 give you the ease for making orders or doing recharge. After placing orders
                                                 here you can straight away take your food by giving your registered id.
                                                 This is a user friendly site easy to use, so SIGN UP and ORDER FOOD now. 
+                                                </h4>
 					<p>
 				</div>
 				<div class="clearfix"> </div>
@@ -90,7 +91,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="agileits_team_grids">
 				<div class="col-md-3 agileits_team_grid">
 					<img src="../images/muku.jpg" alt="" class="img-responsive"/>
-					<h4>Mukul Pahwa</h4>
+					<h4>Mukul</h4>
 					<p>CEO</p>
 					<ul class="agileits_social_icons agileits_social_icons_team">
 						<li><a href="#" class="facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
@@ -100,7 +101,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 				<div class="col-md-3 agileits_team_grid">
 					<img src="../images/s_g.jpg" alt="" class="img-responsive"/>
-					<h4>Muskaan Garg</h4>
+					<h4>Shivam</h4>
 					<p>CEO</p>
 					<ul class="agileits_social_icons agileits_social_icons_team">
 						<li><a href="#" class="facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
@@ -110,7 +111,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 				<div class="col-md-3 agileits_team_grid">
 					<img src="../images/s_s.jpg" alt="" class="img-responsive"/>
-					<h4>Muskaan Sharma</h4>
+					<h4>Sawan</h4>
 					<p>CEO</p>
 					<ul class="agileits_social_icons agileits_social_icons_team">
 						<li><a href="#" class="facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
@@ -118,7 +119,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<li><a href="#" class="google"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
 					</ul>
 				</div>
-				
+				<div class="col-md-3 agileits_team_grid">
+					<img src="../images/s_s.jpg" alt="" class="img-responsive"/>
+					<h4>Saurav</h4>
+					<p>CEO</p>
+					<ul class="agileits_social_icons agileits_social_icons_team">
+						<li><a href="#" class="facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+						<li><a href="#" class="twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+						<li><a href="#" class="google"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+					</ul>
+				</div>
 				
 				<div class="clearfix"> </div>
 			</div>

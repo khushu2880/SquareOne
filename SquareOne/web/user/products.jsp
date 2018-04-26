@@ -37,26 +37,7 @@
                 });
             });
             
-            function add_to_cart(sno)
-            {
-
-
-                $.ajax({
-                    type: "POST",
-                    url: "add_item_cart",
-                    data: {sno: sno},
-                    success: function (result)
-                    {
-                        alert(result);
-                        if (result.trim() === 'success') {
-                            location.reload();
-                        } else {
-                            //    Not able to Add Item";
-                        }
-                    }
-                });
-
-            }
+            
         </script>
         <!-- start-smoth-scrolling -->
     </head>
@@ -96,8 +77,9 @@
                                             <figure>
                                                 <div class="snipcart-item block">
                                                     <div class="snipcart-thumb"><%-- TODO Link to Item description Required  --%>
-                                                        <img src="${data.Item_image}"  alt=" " class="img-responsive" />
+                                                        <a href="itemdetail?itemsno=${data.sno}"><img src="${data.Item_image}"  alt=" " class="img-responsive" />
                                                         <p>${data.Item_name}</p>
+                                                        </a>
                                                         <h4>&#8377;${data.Item_price}</h4>
                                                     </div>
                                                     <div class="snipcart-details">

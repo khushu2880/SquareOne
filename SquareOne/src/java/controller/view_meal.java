@@ -47,7 +47,7 @@ public class view_meal extends HttpServlet {
             transaction tr = new transaction();
             cartlist = tr.generateCheckout(username);
             request.setAttribute("cart", cartlist);
-            RequestDispatcher rd = request.getRequestDispatcher("user/products.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("user/meal.jsp");
             rd.forward(request, response);
                         
         }

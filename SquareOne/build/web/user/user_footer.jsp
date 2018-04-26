@@ -16,14 +16,14 @@
             <div class="col-md-3 w3_footer_grid">
                 <h3>information</h3>
                 <ul class="w3_footer_grid_list">
-                    <li><a href="about.jsp">About Us</a></li>
-                    <li><a href="products.jsp">Products</a></li>
+                    <li><a href="about">About Us</a></li>
+                    <li><a href="view_all">Products</a></li>
                 </ul>
             </div>
             <div class="col-md-3 w3_footer_grid">
                 <h3>policy info</h3>
                 <ul class="w3_footer_grid_list">
-                    <li><a href="faqs.jsp">FAQ</a></li>
+                    <li><a href="faqs">FAQ</a></li>
                     <li><a href="privacy.jsp">privacy policy</a></li>
                     <li><a href="privacy.jsp">terms of use</a></li>
                 </ul>
@@ -31,7 +31,7 @@
             <div class="col-md-3 w3_footer_grid">
                 <h3>what in stores</h3>
                 <ul class="w3_footer_grid_list">
-                    <li><a href="products.jsp">Items</a></li>
+                    <li><a href="view_all">Items</a></li>
                 </ul>
             </div>
             <div class="col-md-3 w3_footer_grid">

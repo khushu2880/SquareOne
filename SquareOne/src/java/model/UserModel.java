@@ -7,8 +7,7 @@ package model;
 
 public class UserModel 
 {
-    String username,pass,email,phone;
-    String fname,lname,dateofbirth,gender;
+    String username,pass,email,phone,fname,lname,dateofbirth,gender;
 
     public String getUsername() {
         return username;

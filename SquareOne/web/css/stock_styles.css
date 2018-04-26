@@ -71,7 +71,7 @@ body
     margin-right: 30%;
     width: 950px;
     border: 1px solid black;
-    position: absolute;
+    position: relative;
     height: 230px;
     bottom: 0px;
 }

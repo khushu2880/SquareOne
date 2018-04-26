@@ -6,12 +6,15 @@
 package dao;
 
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 
 /**
  *
  * @author mukul
  */
 public interface adminAccount_dao {
+    public LinkedHashMap getSelfAccountDetails(String username); 
     public ArrayList viewAccounts();
+    public String changePassword(String ID,String newpassword);
     
 }

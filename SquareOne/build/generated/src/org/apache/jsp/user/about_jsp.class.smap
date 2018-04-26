@@ -1,0 +1,36 @@
+SMAP
+about_jsp.java
+JSP
+*S JSP
+*F
++ 0 about.jsp
+user/about.jsp
++ 1 user_header.jsp
+user/user_header.jsp
++ 2 user_navbar.jsp
+user/user_navbar.jsp
++ 3 user_footer.jsp
+user/user_footer.jsp
+*L
+4,40:70
+5#1,134:110
+138:552,12
+139:564
+139:593,8
+140,2:601
+142:603,3
+143,5:606
+148:611,3
+149,5:614
+154:619,3
+155,3:622
+157,2:567
+158,5:246
+163:251,3
+164,9:254
+43#0,17:262
+5#2,64:279
+59#0,72:342
+5#3,61:414
+130#0,60:474
+*E

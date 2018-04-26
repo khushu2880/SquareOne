@@ -103,8 +103,10 @@ function add_to_cart(sno)
                                             <figure>
                                                 <div class="snipcart-item block">
                                                     <div class="snipcart-thumb">
-                                                        <a href="single.html"><img src="${data.Item_image}" alt=" " class="img-responsive" /></a>
+                                                        <a href="itemdetail?itemsno=${data.sno}"><img src="${data.Item_image}"  alt=" " class="img-responsive" >
+                                                            <img src="${data.Item_image}" alt=" " height="150" width="150" />
                                                         <p>${data.Item_name}</p>
+                                                        </a>
                                                         <h4>&#8377;${data.Item_price}</h4>
                                                     </div>
                                                     <div class="snipcart-details">

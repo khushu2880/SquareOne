@@ -5,6 +5,18 @@ License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 --*/
 
+.payment_td
+{
+    width: 300px;
+    vertical-align: baseline;
+}
+
+.payment_button_span
+{
+    top:0px;
+    width: 300px;
+}
+
 
 
 

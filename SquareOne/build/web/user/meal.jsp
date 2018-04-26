@@ -73,7 +73,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="container">
 			<ul>
 				<li><i class="fa fa-home" aria-hidden="true"></i><a href="index.html">Home</a><span>|</span></li>
-				<li>Frozen Food</li>
+				<li>Meals</li>
 			</ul>
 		</div>
 	</div>
@@ -86,14 +86,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="w3l_banner_nav_right">
 			<div class="w3l_banner_nav_right_banner3_btm">
 				<div class="col-md-4 w3l_banner_nav_right_banner3_btml">
-					<div class="view view-tenth">
-						<img src="images/24.jpg" alt=" " class="img-responsive">
-						<div class="mask">
-							<h4>Store</h4>
-							<p>Juicy Fresh Chicken </p>
-						</div>
-					</div>
-					<h4>Roasted Chicken</h4>
+					
+					<h4></h4>
 					
 				</div>
 				<div class="clearfix"> </div>
@@ -109,8 +103,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<figure>
 									<div class="snipcart-item block">
 										<div class="snipcart-thumb">
-											<a href="single.html"><img src="${data.Item_image}" alt=" " class="img-responsive" /></a>
+											<a href="itemdetail?itemsno=${data.sno}"><img src="${data.Item_image}"  alt=" " class="img-responsive" >
+                                                                                            <img src="${data.Item_image}" alt=" " class="img-responsive" />
 											<p>${data.Item_name}</p>
+                                                                                        </a>
 											<h4>&#8377;${data.Item_price}</h4>
 										</div>
 										<div class="snipcart-details">

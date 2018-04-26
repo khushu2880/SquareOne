@@ -7,6 +7,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+    
+    if(session.getAttribute("user_name")==null ||session.getAttribute("user_name").equals(""))
+    {
+        response.sendRedirect("login.jsp");
+    }
+%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,6 +23,7 @@
         <link href="user/css/style.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
+        
         <div class="w3l_offers">
             <a href="products.jsp">Products</a>
         </div>
@@ -29,12 +37,11 @@
         </div>
         <div class="product_list_header">  
             
-            <button onclick="view_cart();" style="background-color: transparent;border: none;">
-                <input type="hidden" name="cmd" value="_cart" />
-                <input type="hidden" name="display" value="0" />
-                <input type="submit" name="submit" value="View your cart" class="button" />
-            </button>
-                    </div>
+            <button onclick="view_cart()" style="background-color: transparent;border: none;height: 30px;padding-top: 7px;">
+                <div style="padding: 5px;border: 1px solid greenyellow;color: white; height: 35px;">View Your cart <img src="images/cart.png" alt=""/></div></button>
+            
+            
+        </div>
         <div class="w3l_header_right">
             <ul>
                 <li class="dropdown profile_details_drop">
@@ -42,7 +49,9 @@
                     <div class="mega-dropdown-menu">
                         <div class="w3ls_vegetables">
                             <ul class="dropdown-menu drp-mnu">
-                                <li><a href="login.jsp">Login</a></li> 
+                                <li><% session = request.getSession();%>
+                                    <a href="user_profile"><%=session.getAttribute("user_name")%></a></li>
+                                <li><a href="user_logout">Logout</a></li> 
                             </ul>
                         </div>                  
                     </div>	
@@ -58,7 +67,6 @@
     <script>
     function view_cart()
     {
-        
         $('#minicart').show();
     }
     
@@ -82,6 +90,27 @@
 
         });
         
+        function add_to_cart(sno)
+            {
+
+
+                $.ajax({
+                    type: "POST",
+                    url: "add_item_cart",
+                    data: {sno: sno},
+                    success: function (result)
+                    {
+                        alert(result);
+                        if (result.trim() === 'success') {
+                            document.location.reload();
+                        } else {
+                            alert("Sorry We were not able to process your request!");
+                            
+                        }
+                    }
+                });
+
+            }
         function checkout()
         {
             
@@ -90,17 +119,17 @@
 
 
         }
+                
     </script>
     <!-- //script-for sticky-nav -->
     <div class="logo_products">
         <div class="container">
             <div class="w3ls_logo_products_left">
-                <h1><a href="products.jsp"></a></h1>
+                <h1><a href="products.jsp">Square One</a></h1>
             </div>
-            <div><h1>Square One</h1></div>
             <div class="w3ls_logo_products_left1">
                 <ul class="special_items">
-                    <li><a href="about.jsp">About Us</a><i>/</i></li>
+                    <li><a href="about">About Us</a><i>/</i></li>
                     <li><a href="view_all">Products</a><i>/</i></li>
                     <li><a href="myorders.jsp">My Orders</a></li>
                 </ul>
@@ -115,13 +144,23 @@
         </div>
         <div id='minicart'>
             <button type="button" onclick="hide_cart()" class="minicart-closer">×</button>
-        <ul>
             
-            <c:forEach items="${cart}" var="item" varStatus="status">
+                <c:choose>
+                    <c:when test="${empty cart}">
+                        <ul id="list">
+                        <li>
+                            <div style="font-size: 22px;padding-bottom: 20px;text-align: center;">Your Shopping Cart is Empty</div>
+                        </li>
+                        </ul>
+                    </c:when>
+                    
+                    <c:otherwise>
+                        <ul id="list">
+                        <c:forEach items="${cart}" var="item" varStatus="status">
                 <c:if test="${! status.last}">
                 <li class="minicart-item minicart-item-changed">
                 <div class="mini minicart-details-name">
-                    <a class=" minicart-name sfont" href="">${item.itemname}</a>
+                    <a class=" minicart-name sfont" href="itemdetail?itemsno=${item.itemsno}">${item.itemname}</a>
                 
                 </div>
                     
@@ -138,15 +177,21 @@
                 </li>
                 </c:if>
             </c:forEach>
-            
-                </ul>
-        <div class="minicart-footer">
+                        </ul>
+        <div id="cartfoot" class="minicart-footer">
             <div class="minicart-subtotal">
                 Total: &#8377; ${cart[fn:length(cart)-1].bill}           
             </div>            
             <button class="minicart-submit label-primary" onclick="checkout()" type="button" >Check Out</button>
         
         </div>
+                    </c:otherwise>
+                    
+                    
+                </c:choose>
+            
+            
+        
 </div>
 </div>
 </body>

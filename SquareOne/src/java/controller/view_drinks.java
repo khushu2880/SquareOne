@@ -48,8 +48,8 @@ public class view_drinks extends HttpServlet {
             ArrayList cartlist = new ArrayList();
             transaction tr = new transaction();
             cartlist = tr.generateCheckout(username);
-            
             request.setAttribute("cart", cartlist);
+            
             
             RequestDispatcher rd = request.getRequestDispatcher("user/drinks.jsp");
             rd.forward(request, response);

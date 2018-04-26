@@ -5,15 +5,16 @@
  */
 package controller;
 
-import dao_impl.item;
+import dao_impl.adminAccount;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -26,19 +27,28 @@ public class view_account extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        try 
-        {
+        try {
+            HttpSession session = request.getSession();
+            if (session.getAttribute("user_name") == null || session.getAttribute("user_name").equals("")) {
+                response.sendRedirect("admin.jsp");
+            }
+            String ID= session.getAttribute("user_name").toString();
+            
+            adminAccount aA = new adminAccount();
+            
+            LinkedHashMap accountDetails = new LinkedHashMap();
+            accountDetails =  aA.getSelfAccountDetails(ID);
+            request.setAttribute("details", accountDetails);
+            
+                
+             
             RequestDispatcher rd = request.getRequestDispatcher("admin/account.jsp");
             rd.forward(request, response);
-            
-            
-        }
-        catch(Exception ex)
-        {
-            System.out.println("ex"+ex);
-            
+
+        } catch (Exception ex) {
+            System.out.println("ex" + ex);
+
         }
     }
-
 
 }

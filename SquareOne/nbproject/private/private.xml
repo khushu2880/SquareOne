@@ -3,29 +3,35 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/A:/NetBeans/SquareOne/src/java/controller/view_drinks.java</file>
-            <file>file:/A:/NetBeans/SquareOne/web/admin/stock.jsp</file>
-            <file>file:/A:/NetBeans/SquareOne/web/login.jsp</file>
-            <file>file:/A:/NetBeans/SquareOne/src/java/dao/transaction_dao.java</file>
-            <file>file:/A:/NetBeans/SquareOne/web/WEB-INF/web.xml</file>
-            <file>file:/A:/NetBeans/SquareOne/src/java/dao/item_dao.java</file>
-            <file>file:/A:/NetBeans/SquareOne/src/java/model/UserModel.java</file>
-            <file>file:/A:/NetBeans/SquareOne/src/java/controller/create_user.java</file>
-            <file>file:/A:/NetBeans/SquareOne/web/user/meal.jsp</file>
-            <file>file:/A:/NetBeans/SquareOne/src/java/controller/view_all.java</file>
-            <file>file:/A:/NetBeans/SquareOne/src/java/controller/view_snacks.java</file>
-            <file>file:/A:/NetBeans/SquareOne/web/user/user_navbar.jsp</file>
+            <file>file:/A:/NetBeans/SquareOne/src/java/model/ItemModel.java</file>
+            <file>file:/A:/NetBeans/SquareOne/src/java/controller/itemdetail.java</file>
+            <file>file:/A:/NetBeans/SquareOne/src/java/controller/OrderSummary.java</file>
+            <file>file:/A:/NetBeans/SquareOne/web/admin.jsp</file>
+            <file>file:/A:/NetBeans/SquareOne/web/admin/transactions.jsp</file>
+            <file>file:/A:/NetBeans/SquareOne/web/user/productdetail.jsp</file>
+            <file>file:/A:/NetBeans/SquareOne/src/java/controller/payment.java</file>
             <file>file:/A:/NetBeans/SquareOne/src/java/controller/checkout.java</file>
-            <file>file:/A:/NetBeans/SquareOne/src/java/controller/view_meal.java</file>
-            <file>file:/A:/NetBeans/SquareOne/web/admin/manage_users.jsp</file>
             <file>file:/A:/NetBeans/SquareOne/web/user/user_header.jsp</file>
+            <file>file:/A:/NetBeans/SquareOne/src/java/controller/checkaccountavailability.java</file>
+            <file>file:/A:/NetBeans/SquareOne/src/java/dao_impl/adminAccount.java</file>
             <file>file:/A:/NetBeans/SquareOne/src/java/dao_impl/item.java</file>
-            <file>file:/A:/NetBeans/SquareOne/src/java/dao_impl/transaction.java</file>
-            <file>file:/A:/NetBeans/SquareOne/web/user/snacks.jsp</file>
-            <file>file:/A:/NetBeans/SquareOne/web/user/drinks.jsp</file>
-            <file>file:/A:/NetBeans/SquareOne/web/user/checkout.jsp</file>
-            <file>file:/A:/NetBeans/SquareOne/web/user/products.jsp</file>
+            <file>file:/A:/NetBeans/SquareOne/web/user/about.jsp</file>
             <file>file:/A:/NetBeans/SquareOne/src/java/dao_impl/userAccount.java</file>
+            <file>file:/A:/NetBeans/SquareOne/src/java/controller/order_from_wallet.java</file>
+            <file>file:/A:/NetBeans/SquareOne/src/java/dao/item_dao.java</file>
+            <file>file:/A:/NetBeans/SquareOne/web/login.jsp</file>
+            <file>file:/A:/NetBeans/SquareOne/src/java/service/DatabaseConnection.java</file>
+            <file>file:/A:/NetBeans/SquareOne/web/user/meal.jsp</file>
+            <file>file:/A:/NetBeans/SquareOne/web/user/Order_bill.jsp</file>
+            <file>file:/A:/NetBeans/SquareOne/web/user/payment.jsp</file>
+            <file>file:/A:/NetBeans/SquareOne/web/user/ordersuccess.jsp</file>
+            <file>file:/A:/NetBeans/SquareOne/src/java/controller/about.java</file>
+            <file>file:/A:/NetBeans/SquareOne/web/user/drinks.jsp</file>
+            <file>file:/A:/NetBeans/SquareOne/web/user/snacks.jsp</file>
+            <file>file:/A:/NetBeans/SquareOne/src/java/dao_impl/transaction.java</file>
+            <file>file:/A:/NetBeans/SquareOne/web/admin/account.jsp</file>
+            <file>file:/A:/NetBeans/SquareOne/web/admin/Order_Summary.jsp</file>
+            <file>file:/A:/NetBeans/SquareOne/web/user/products.jsp</file>
         </group>
     </open-files>
 </project-private>

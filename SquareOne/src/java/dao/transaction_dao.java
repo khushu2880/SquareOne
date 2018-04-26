@@ -18,5 +18,5 @@ public interface transaction_dao {
     public ArrayList viewTransactions();
     public LinkedHashMap generateBill();
     public ArrayList generateCheckout(String username);
-    public String createTransaction();
+    public String payViaWallet(String username,String billamt,ArrayList productlist);
 }

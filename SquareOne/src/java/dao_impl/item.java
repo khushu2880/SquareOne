@@ -308,5 +308,36 @@ public class item implements item_dao
     return al;
     }
     
+    @Override
+    public LinkedHashMap detail(String sno)
+    {
+        LinkedHashMap lhm = new LinkedHashMap();
+        try{
+            PreparedStatement ps=con.prepareStatement("Select * from stock where sno=?");
+            ps.setString(1, sno);
+            ResultSet rs = ps.executeQuery();
+            
+            if(rs.next())
+            {
+                String url = "http://localhost/picture/"+rs.getString("image");
+            
+                lhm.put("sno", rs.getString("sno"));
+                lhm.put("Item_name",rs.getString("name"));
+                lhm.put("Item_price",Integer.parseInt(rs.getString("price")));
+                lhm.put("Item_image",url);
+                lhm.put("Item_desc",rs.getString("description"));
+                
+                
+            }
+            
+            return lhm;
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Exception in detail in item: "+ex);
+            return lhm;
+        }
     
+   
+    }
 }

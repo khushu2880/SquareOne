@@ -18,20 +18,6 @@ import org.apache.commons.fileupload.FileItem;
  */
 public class add_item_cart extends HttpServlet {
     
-    File file;
-
-    public File upload_file1(FileItem fi, String path) {
-        try {
-            file = new File(path);
-            fi.write(file);
-        } catch (Exception e) {
-            System.out.print("problem to upload file" + e);
-        }
-        return file;
-    }
-    
-    
-    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException
     {
@@ -71,7 +57,7 @@ public class add_item_cart extends HttpServlet {
         }
          catch(Exception ex)
         {
-            out.println(ex);
+            out.println("add_item_cart:do post"+ex);
         }
         
     

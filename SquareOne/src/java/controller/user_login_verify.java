@@ -53,7 +53,7 @@ public class user_login_verify extends HttpServlet {
                 {
                     HttpSession session = request.getSession();
                     session.setAttribute("user_name",user_name);
-                    response.sendRedirect("user/about.jsp");
+                    response.sendRedirect("about");
                 }
             }
             else

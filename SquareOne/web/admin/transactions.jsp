@@ -20,7 +20,7 @@
         <header>
             <%@include file="navbar.jsp" %>
         </header>
-        <div id="container" style="overflow-y: auto;">
+        <div id="container" style="overflow-y: auto;overflow-x: no-display;height: auto;">
             <table id="view_table" cellspacing="15">
                 <thead id="view_table_head">
                     <tr id="view_table_headrow">

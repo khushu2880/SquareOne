@@ -80,6 +80,42 @@
         <servlet-name>view_snacks</servlet-name>
         <servlet-class>controller.view_snacks</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>admin_change_pass</servlet-name>
+        <servlet-class>controller.admin_change_pass</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>checkaccountavailability</servlet-name>
+        <servlet-class>controller.checkaccountavailability</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>payment</servlet-name>
+        <servlet-class>controller.payment</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>order_from_wallet</servlet-name>
+        <servlet-class>controller.order_from_wallet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>about</servlet-name>
+        <servlet-class>controller.about</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>faqs</servlet-name>
+        <servlet-class>controller.faqs</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>user_profile</servlet-name>
+        <servlet-class>controller.user_profile</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>user_logout</servlet-name>
+        <servlet-class>controller.user_logout</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>itemdetail</servlet-name>
+        <servlet-class>controller.itemdetail</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>verify_admin_login</servlet-name>
         <url-pattern>/verify_admin_login</url-pattern>
@@ -156,9 +192,43 @@
         <servlet-name>view_snacks</servlet-name>
         <url-pattern>/view_snacks</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>admin_change_pass</servlet-name>
+        <url-pattern>/admin_change_pass</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>checkaccountavailability</servlet-name>
+        <url-pattern>/checkaccountavailability</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>payment</servlet-name>
+        <url-pattern>/payment</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>order_from_wallet</servlet-name>
+        <url-pattern>/order_from_wallet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>about</servlet-name>
+        <url-pattern>/about</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>faqs</servlet-name>
+        <url-pattern>/faqs</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>user_profile</servlet-name>
+        <url-pattern>/user_profile</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>user_logout</servlet-name>
+        <url-pattern>/user_logout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>itemdetail</servlet-name>
+        <url-pattern>/itemdetail</url-pattern>
+    </servlet-mapping>
     <session-config>
-        <session-timeout>
-            30
-        </session-timeout>
+        <session-timeout>60</session-timeout>
     </session-config>
 </web-app>
